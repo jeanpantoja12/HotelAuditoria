@@ -1,61 +1,8 @@
-﻿<!doctype html>
-<html lang="en">
-    <head>
-        <!-- Required meta tags -->
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <link rel="icon" href="image/favicon.png" type="image/png">
-        <title>Royal Hotel</title>
-        <!-- Bootstrap CSS -->
-        <link rel="stylesheet" href="css/bootstrap.css">
-        <link rel="stylesheet" href="vendors/linericon/style.css">
-        <link rel="stylesheet" href="css/font-awesome.min.css">
-        <link rel="stylesheet" href="vendors/owl-carousel/owl.carousel.min.css">
-        <link rel="stylesheet" href="vendors/bootstrap-datepicker/bootstrap-datetimepicker.min.css">
-        <link rel="stylesheet" href="vendors/nice-select/css/nice-select.css">
-        <link rel="stylesheet" href="vendors/owl-carousel/owl.carousel.min.css">
-        <!-- main css -->
-        <!-- prueba commnit Cecili ;) -->
-        <link rel="stylesheet" href="css/style.css">
-        <link rel="stylesheet" href="css/responsive.css">
-    </head>
-    <body>
-        <!--================Header Area =================-->
-        <header class="header_area">
-            <div class="container">
-                <nav class="navbar navbar-expand-lg navbar-light">
-                    <!-- Brand and toggle get grouped for better mobile display -->
-                    <a class="navbar-brand logo_h" href="index.html"><img src="image/Logo.png" alt=""></a>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <!-- Collect the nav links, forms, and other content for toggling -->
-                    <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
-                        <ul class="nav navbar-nav menu_nav ml-auto">
-                            <li class="nav-item active"><a class="nav-link" href="index.html">Inicio</a></li> 
-                            <li class="nav-item"><a class="nav-link" href="about.html">Nosotros</a></li>
-                            <li class="nav-item"><a class="nav-link" href="accomodation.html">Alojamiento</a></li>
-                            <li class="nav-item"><a class="nav-link" href="gallery.html">Galeria</a></li>
-                          <!--  <li class="nav-item submenu dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Blog</a>
-                                <ul class="dropdown-menu">
-                                    <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="blog-single.html">Blog Details</a></li>
-                                </ul>
-                            </li>
-                            <li class="nav-item"><a class="nav-link" href="elements.html">Elemests</a></li>  -->
-                            <li class="nav-item"><a class="nav-link" href="contact.html">Contacto</a></li>
-                        </ul>
-                    </div> 
-                </nav>
-            </div>
-        </header>
-        <!--================Header Area =================-->
-        
-        <!--================Banner Area =================-->
-        <section class="banner_area">
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Masterpage.Master" AutoEventWireup="true" CodeBehind="index.aspx.cs" Inherits="HotelAuditoria.WebForm1" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
+    <section class="banner_area">
             <div class="booking_table d_flex align-items-center">
             	<div class="overlay bg-parallax" data-stellar-ratio="0.9" data-stellar-vertical-offset="0" data-background=""></div>
 				<div class="container">
@@ -100,6 +47,7 @@
                                     <div class="col-md-4">
                                         <div class="book_tabel_item">
                                             <div class="input-group">
+                                                <asp:DropDownList ID="drpCantidad" runat="server"></asp:DropDownList>
                                                 <select class="wide">
                                                     <option data-display="Adultos">Adultos</option>
                                                     <option value="1">Tercera Edad</option>
@@ -108,26 +56,26 @@
                                                 </select>
                                             </div>
                                             <div class="input-group">
-                                                <select class="wide">
-                                                    <option data-display="Niños">Niños</option>
-                                                    <option value="1">Niño</option>
-                                                    <option value="2">Bebé</option>
-                                            
-                                                </select>
+                                                <asp:DropDownList CssClass="wide" ID="drpNinos" data-display="Niños" runat="server">
+                                                    
+                                                    <asp:ListItem Value="Si">Si</asp:ListItem>
+                                                    <asp:ListItem Value="No">No</asp:ListItem>
+                                                </asp:DropDownList>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="book_tabel_item">
                                             <div class="input-group">
-                                                <select class="wide">
-                                                    <option data-display="Niños">Número de habitaciones</option>
-                                                    <option value="1">1 Habitacion</option>
-                                                    <option value="2">2 Habitaciones</option>
-                                                    <option value="3">3 Habitaciones</option>
-                                                </select>
+                                                <asp:DropDownList CssClass="wide" data-display="Habitaciones" ID="drpHabitaciones" runat="server">
+                                                    <asp:ListItem Value="1">1 Habitación</asp:ListItem>
+                                                    <asp:ListItem Value="2">2 Habitaciones</asp:ListItem>
+                                                    <asp:ListItem Value="3">3 Habitaciones</asp:ListItem>
+                                                </asp:DropDownList>
+
                                             </div>
-                                            <a class="book_now_btn button_hover" href="#">Reservar Ahora</a>
+                                            <asp:Button ID="btnReservar" runat="server" Text="Reservar Ahora"  CssClass="book_now_btn button_hover"/>
+                                            
                                         </div>
                                     </div>
                                 </div>
@@ -329,162 +277,6 @@
                 </div>
             </div>
         </section>
-        <!--================ Testimonial Area  =================-->
-        
-        <!--================ Latest Blog Area  =================-->
-        <!-- <section class="latest_blog_area section_gap">
-            <div class="container">
-                <div class="section_title text-center">
-                    <h2 class="title_color">latest posts from blog</h2>
-                    <p>The French Revolution constituted for the conscience of the dominant aristocratic class a fall from </p>
-                </div>
-                <div class="row mb_30">
-                    <div class="col-lg-4 col-md-6">
-                        <div class="single-recent-blog-post">
-                            <div class="thumb">
-                                <img class="img-fluid" src="image/blog/blog-1.jpg" alt="post">
-                            </div>
-                            <div class="details">
-                                <div class="tags">
-                                    <a href="#" class="button_hover tag_btn">Travel</a>
-                                    <a href="#" class="button_hover tag_btn">Life Style</a>
-                                </div>
-                                <a href="#"><h4 class="sec_h4">Low Cost Advertising</h4></a>
-                                <p>Acres of Diamonds… you’ve read the famous story, or at least had it related to you. A farmer.</p>
-                                <h6 class="date title_color">31st January,2018</h6>
-                            </div>	
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="single-recent-blog-post">
-                            <div class="thumb">
-                                <img class="img-fluid" src="image/blog/blog-2.jpg" alt="post">
-                            </div>
-                            <div class="details">
-                                <div class="tags">
-                                    <a href="#" class="button_hover tag_btn">Travel</a>
-                                    <a href="#" class="button_hover tag_btn">Life Style</a>
-                                </div>
-                                <a href="#"><h4 class="sec_h4">Creative Outdoor Ads</h4></a>
-                                <p>Self-doubt and fear interfere with our ability to achieve or set goals. Self-doubt and fear are</p>
-                                <h6 class="date title_color">31st January,2018</h6>
-                            </div>	
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="single-recent-blog-post">
-                            <div class="thumb">
-                                <img class="img-fluid" src="image/blog/blog-3.jpg" alt="post">
-                            </div>
-                            <div class="details">
-                                <div class="tags">
-                                    <a href="#" class="button_hover tag_btn">Travel</a>
-                                    <a href="#" class="button_hover tag_btn">Life Style</a>
-                                </div>
-                                <a href="#"><h4 class="sec_h4">It S Classified How To Utilize Free</h4></a>
-                                <p>Why do you want to motivate yourself? Actually, just answering that question fully can </p>
-                                <h6 class="date title_color">31st January,2018</h6>
-                            </div>	
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        ->
-        <!--================ Recent Area  =================-->
-        
-        <!--================ start footer Area  =================-->	
-        <footer class="footer-area section_gap">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-4  col-md-6 col-sm-6">
-                        <div class="single-footer-widget">
-                            <h6 class="footer_title">Nuestra Agencia</h6>
-                            <p>The world has become so fast paced that people don’t want to stand by reading a page of information, they would much rather look at a presentation and understand the message. It has come to a point </p>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-6">
-                        <div class="single-footer-widget">
-                            <h6 class="footer_title">Enlaces de Nagegación</h6>
-                            <div class="row">
-                                <div class="col-4">
-                                    <ul class="list_style">
-                                        <li><a href="#">Inicio</a></li>
-                                        <li><a href="#">Nosotros</a></li>
-                                        <li><a href="#">Alojamiento</a></li>
-              
-                                    </ul>
-                                </div>
-                                <div class="col-4">
-                                    <ul class="list_style">
-                                        <li><a href="#">Galeria</a></li>
-                                        <li><a href="#">Contacto</a></li>
-                                       
-                                    </ul>
-                                </div>										
-                            </div>							
-                        </div>
-                    </div>							
-                   <!--   <div class="col-lg-3 col-md-6 col-sm-6">
-                        <div class="single-footer-widget">
-                            <h6 class="footer_title">Newsletter</h6>
-                            <p>For business professionals caught between high OEM price and mediocre print and graphic output, </p>		
-                            <div id="mc_embed_signup">
-                                <form target="_blank" action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01" method="get" class="subscribe_form relative">
-                                    <div class="input-group d-flex flex-row">
-                                        <input name="EMAIL" placeholder="Email Address" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email Address '" required="" type="email">
-                                        <button class="btn sub-btn"><span class="lnr lnr-location"></span></button>		
-                                    </div>									
-                                    <div class="mt-10 info"></div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>-->	
-                    <div class="col-lg-4 col-md-6 col-sm-6">
-                        <div class="single-footer-widget instafeed">
-                            <h6 class="footer_title">InstaFeed</h6>
-                            <ul class="list_style instafeed d-flex flex-wrap">
-                                <li><img src="image/instagram/Image-01.jpg" alt=""></li>
-                                <li><img src="image/instagram/Image-02.jpg" alt=""></li>
-                                <li><img src="image/instagram/Image-03.jpg" alt=""></li>
-                                <li><img src="image/instagram/Image-04.jpg" alt=""></li>
-                                <li><img src="image/instagram/Image-05.jpg" alt=""></li>
-                                <li><img src="image/instagram/Image-06.jpg" alt=""></li>
-                                <li><img src="image/instagram/Image-07.jpg" alt=""></li>
-                                <li><img src="image/instagram/Image-08.jpg" alt=""></li>
-                            </ul>
-                        </div>
-                    </div>				
-                </div>
-                <div class="border_line"></div>
-                <div class="row footer-bottom d-flex justify-content-between align-items-center">
-                    <p class="col-lg-8 col-sm-12 footer-text m-0"> Auditoria de Sistemas</a>
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
-                    <div class="col-lg-4 col-sm-12 footer-social">
-                        <a href="#"><i class="fa fa-facebook"></i></a>
-                        <a href="#"><i class="fa fa-twitter"></i></a>
-                        <a href="#"><i class="fa fa-dribbble"></i></a>
-                        <a href="#"><i class="fa fa-behance"></i></a>
-                    </div>
-                </div>
-            </div>
-        </footer>
-		<!--================ End footer Area  =================-->
-        
-        
-        <!-- Optional JavaScript -->
-        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-        <script src="js/jquery-3.2.1.min.js"></script>
-        <script src="js/popper.js"></script>
-        <script src="js/bootstrap.min.js"></script>
-        <script src="vendors/owl-carousel/owl.carousel.min.js"></script>
-        <script src="js/jquery.ajaxchimp.min.js"></script>
-        <script src="js/mail-script.js"></script>
-        <script src="vendors/bootstrap-datepicker/bootstrap-datetimepicker.min.js"></script>
-        <script src="vendors/nice-select/js/jquery.nice-select.js"></script>
-        <script src="js/mail-script.js"></script>
-        <script src="js/stellar.js"></script>
-        <script src="vendors/lightbox/simpleLightbox.min.js"></script>
-        <script src="js/custom.js"></script>
-    </body>
-</html>
+</asp:Content>
+<asp:Content ID="Content3" ContentPlaceHolderID="script" runat="server">
+</asp:Content>
