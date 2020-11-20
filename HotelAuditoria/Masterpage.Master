@@ -56,12 +56,11 @@
                     </nav>
                 </div>
             </header>
-        <form id="form1" runat="server">
             <div>
                 <asp:ContentPlaceHolder ID="body" runat="server">
                 </asp:ContentPlaceHolder>
             </div>
-        </form>
+        
     <footer class="footer-area section_gap">
             <div class="container">
                 <div class="row">
