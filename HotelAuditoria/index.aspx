@@ -28,7 +28,8 @@
                                         <div class="book_tabel_item">
                                             <div class="form-group">
                                                 <div class='input-group date' id='datetimepicker11'>
-                                                    <input type='text' class="form-control" placeholder="Fecha de llegada"/>
+                                                    <asp:TextBox ID="txtLlegada" CssClass="form-control" placeholder="Fecha de Llegada" runat="server"></asp:TextBox>
+                                                    
                                                     <span class="input-group-addon">
                                                         <i class="fa fa-calendar" aria-hidden="true"></i>
                                                     </span>
@@ -36,7 +37,7 @@
                                             </div>
                                             <div class="form-group">
                                                 <div class='input-group date' id='datetimepicker1'>
-                                                    <input type='text' class="form-control" placeholder="Fecha de salida"/>
+                                                    <asp:TextBox ID="TextBox1" CssClass="form-control" placeholder="Fecha de Salida" runat="server"></asp:TextBox>
                                                     <span class="input-group-addon">
                                                         <i class="fa fa-calendar" aria-hidden="true"></i>
                                                     </span>

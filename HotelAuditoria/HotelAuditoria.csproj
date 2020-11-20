@@ -73,6 +73,8 @@
     <Content Include="contact_process.php" />
     <Content Include="css\bootstrap.css" />
     <Content Include="css\font-awesome.min.css" />
+    <Content Include="css\formstyle.css" />
+    <Content Include="css\pagestyle.css" />
     <Content Include="css\responsive.css" />
     <Content Include="css\style %28Mohammad Rocky%27s conflicted copy 2018-05-08%29.css" />
     <Content Include="css\style.css" />
@@ -82,6 +84,7 @@
     <Content Include="css\_variables.css" />
     <Content Include="elements.html" />
     <Content Include="fonts\fontawesome-webfont.svg" />
+    <Content Include="formulario.html" />
     <Content Include="gallery.html" />
     <Content Include="image\about_banner.jpg" />
     <Content Include="image\about_bg.jpg" />
@@ -171,9 +174,11 @@
     <Content Include="image\room4.jpg" />
     <Content Include="image\testtimonial-1.jpg" />
     <Content Include="image\testtimonial-2.jpg" />
+    <Content Include="js\bootstrap-datepicker.js" />
     <Content Include="js\bootstrap.min.js" />
     <Content Include="js\contact.js" />
     <Content Include="js\custom.js" />
+    <Content Include="js\formscript.js" />
     <Content Include="js\gmaps.min.js" />
     <Content Include="js\jquery-3.2.1.min.js" />
     <Content Include="js\jquery.ajaxchimp.min.js" />
@@ -257,6 +262,7 @@
     <Content Include="vendors\owl-carousel\owl.carousel.min.js" />
     <Content Include="Web.config" />
     <Content Include="index.aspx" />
+    <Content Include="reserva.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -273,6 +279,13 @@
     </Compile>
     <Compile Include="index.aspx.designer.cs">
       <DependentUpon>index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="reserva.aspx.cs">
+      <DependentUpon>reserva.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="reserva.aspx.designer.cs">
+      <DependentUpon>reserva.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
