@@ -265,6 +265,7 @@
     <Content Include="reserva.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="modelo\Clientes.cs" />
     <Compile Include="modelo\conexion.cs" />
     <Compile Include="modelo\Reservas.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
