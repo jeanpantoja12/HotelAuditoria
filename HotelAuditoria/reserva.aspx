@@ -22,7 +22,7 @@
 
                     <div class="row">
                         <div class="col-md-10 offset-md-1">
-                            <form method="post" name="booking" id="booking">
+                            <form method="post" name="booking" runat="server" id="booking">
                                 <!-- Form Title -->
                                 <div class="form-heading text-center">
                                     <div class="title">Reservar Habitación</div>
@@ -34,11 +34,12 @@
                                 <div class="row">
                                     <div class="col-md-6">
                                         <label>Nombres</label>
-                                        <input type="text" name="nombres" id="nombres" required /> 
+                                        <asp:TextBox ID="txtNombres" required  runat="server"></asp:TextBox>
+                                        
 									</div>
                                     <div class="col-md-6">
                                         <label>Apellidos</label>
-                                        <input type="text" name="apellidos" id="apellidos" required /> 
+                                        <asp:TextBox ID="txtApellidos" required  runat="server"></asp:TextBox>
 									</div>
                                 </div>
                                 <!-- Email & Phone  -->
@@ -119,7 +120,8 @@
 							   </div>
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <button class="adam-button">ENVIAR</button></button>
+                                        <asp:Button ID="btnEnviar" CssClass="adam-button" runat="server" Text="ENVIAR" OnClick="btnEnviar_Click" />
+                                        
                                     </div>
                                 </div>
                             </form>
