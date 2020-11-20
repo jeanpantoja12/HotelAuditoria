@@ -15,6 +15,15 @@ namespace HotelAuditoria
     {
 
         /// <summary>
+        /// Control form1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+
+        /// <summary>
         /// Control txtLlegada.
         /// </summary>
         /// <remarks>
@@ -24,13 +33,13 @@ namespace HotelAuditoria
         protected global::System.Web.UI.WebControls.TextBox txtLlegada;
 
         /// <summary>
-        /// Control TextBox1.
+        /// Control txtSalida.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox1;
+        protected global::System.Web.UI.WebControls.TextBox txtSalida;
 
         /// <summary>
         /// Control drpCantidad.
@@ -42,13 +51,13 @@ namespace HotelAuditoria
         protected global::System.Web.UI.WebControls.DropDownList drpCantidad;
 
         /// <summary>
-        /// Control drpNinos.
+        /// Control drpCiudad.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList drpNinos;
+        protected global::System.Web.UI.WebControls.DropDownList drpCiudad;
 
         /// <summary>
         /// Control drpHabitaciones.

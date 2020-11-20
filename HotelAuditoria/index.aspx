@@ -16,7 +16,8 @@
             </div>
        
             <div class="hotel_booking_area position">
-                <div class="container">
+                <form id="form1" runat="server">
+                    <div class="container">
                     <div class="hotel_booking_table">
                         <div class="col-md-3">
                             <h2>Reserva <br> tu Habitación</h2>
@@ -28,8 +29,8 @@
                                         <div class="book_tabel_item">
                                             <div class="form-group">
                                                 <div class='input-group date' id='datetimepicker11'>
-                                                    <asp:TextBox ID="txtLlegada" CssClass="form-control" placeholder="Fecha de Llegada" runat="server"></asp:TextBox>
-                                                    
+                                                    <asp:TextBox ID="txtLlegada" CssClass="form-control" required placeholder="Fecha de Llegada" runat="server"></asp:TextBox>
+                                                    <%--<asp:RequiredFieldValidator id="RequiredFieldValidator1" ControlToValidate="txtLlegada" ErrorMessage="Required" runat="server"/>--%>
                                                     <span class="input-group-addon">
                                                         <i class="fa fa-calendar" aria-hidden="true"></i>
                                                     </span>
@@ -37,7 +38,7 @@
                                             </div>
                                             <div class="form-group">
                                                 <div class='input-group date' id='datetimepicker1'>
-                                                    <asp:TextBox ID="TextBox1" CssClass="form-control" placeholder="Fecha de Salida" runat="server"></asp:TextBox>
+                                                    <asp:TextBox ID="txtSalida" CssClass="form-control" required placeholder="Fecha de Salida" runat="server"></asp:TextBox>
                                                     <span class="input-group-addon">
                                                         <i class="fa fa-calendar" aria-hidden="true"></i>
                                                     </span>
@@ -48,19 +49,16 @@
                                     <div class="col-md-4">
                                         <div class="book_tabel_item">
                                             <div class="input-group">
-                                                <asp:DropDownList ID="drpCantidad" runat="server"></asp:DropDownList>
-                                                <select class="wide">
-                                                    <option data-display="Adultos">Adultos</option>
-                                                    <option value="1">Tercera Edad</option>
-                                                    <option value="2">Adulto</option>
-                                                    <option value="3">Joven</option>
-                                                </select>
+                                                <asp:DropDownList CssClass="wide" ID="drpCantidad" runat="server">
+                                                    <asp:ListItem Value="1">1</asp:ListItem>
+                                                    <asp:ListItem Value="2">2</asp:ListItem>
+                                                    <asp:ListItem Value="3">3</asp:ListItem>
+                                                    <asp:ListItem Value="4">4</asp:ListItem>
+                                                </asp:DropDownList>
                                             </div>
                                             <div class="input-group">
-                                                <asp:DropDownList CssClass="wide" ID="drpNinos" data-display="Niños" runat="server">
+                                                <asp:DropDownList CssClass="wide" ID="drpCiudad" data-display="Niños" runat="server">
                                                     
-                                                    <asp:ListItem Value="Si">Si</asp:ListItem>
-                                                    <asp:ListItem Value="No">No</asp:ListItem>
                                                 </asp:DropDownList>
                                             </div>
                                         </div>
@@ -72,10 +70,11 @@
                                                     <asp:ListItem Value="1">1 Habitación</asp:ListItem>
                                                     <asp:ListItem Value="2">2 Habitaciones</asp:ListItem>
                                                     <asp:ListItem Value="3">3 Habitaciones</asp:ListItem>
+                                                    <asp:ListItem Value="4">4 Habitaciones</asp:ListItem>
                                                 </asp:DropDownList>
 
                                             </div>
-                                            <asp:Button ID="btnReservar" runat="server" Text="Reservar Ahora"  CssClass="book_now_btn button_hover"/>
+                                            <asp:Button ID="btnReservar" runat="server" Text="Reservar Ahora"  CssClass="book_now_btn button_hover" OnClick="btnReservar_Click"/>
                                             
                                         </div>
                                     </div>
@@ -84,6 +83,8 @@
                         </div>
                     </div>
                 </div>
+                </form>
+                
             </div>
         </section>
         <!--================Banner Area =================-->
