@@ -11,7 +11,7 @@ namespace HotelAuditoria
 {
 
 
-    public partial class WebForm1
+    public partial class Busquedas
     {
 
         /// <summary>
@@ -76,5 +76,14 @@ namespace HotelAuditoria
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnReservar;
+
+        /// <summary>
+        /// Control plHoteles.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.PlaceHolder plHoteles;
     }
 }

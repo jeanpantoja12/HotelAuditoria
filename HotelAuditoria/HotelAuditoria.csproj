@@ -54,6 +54,7 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
@@ -69,6 +70,7 @@
     <Content Include="accomodation.html" />
     <Content Include="blog-single.html" />
     <Content Include="blog.html" />
+    <Content Include="Busquedas.aspx" />
     <Content Include="contact.html" />
     <Content Include="contact_process.php" />
     <Content Include="css\bootstrap.css" />
@@ -265,6 +267,14 @@
     <Content Include="reserva.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Busquedas.aspx.cs">
+      <DependentUpon>Busquedas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Busquedas.aspx.designer.cs">
+      <DependentUpon>Busquedas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="modelo\Clientes.cs" />
     <Compile Include="modelo\conexion.cs" />
     <Compile Include="modelo\Reservas.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -282,6 +292,7 @@
     <Compile Include="index.aspx.designer.cs">
       <DependentUpon>index.aspx</DependentUpon>
     </Compile>
+    <Compile Include="negocio\App_code.cs" />
     <Compile Include="reserva.aspx.cs">
       <DependentUpon>reserva.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -338,6 +349,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
