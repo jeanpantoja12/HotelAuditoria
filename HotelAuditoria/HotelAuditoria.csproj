@@ -274,6 +274,7 @@
     <Compile Include="Busquedas.aspx.designer.cs">
       <DependentUpon>Busquedas.aspx</DependentUpon>
     </Compile>
+    <Compile Include="modelo\Ciudad.cs" />
     <Compile Include="modelo\Clientes.cs" />
     <Compile Include="modelo\conexion.cs" />
     <Compile Include="modelo\Reservas.cs" />

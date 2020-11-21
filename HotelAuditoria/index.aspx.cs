@@ -13,7 +13,7 @@ namespace HotelAuditoria
 {
     public partial class WebForm1 : System.Web.UI.Page
     {
-        Reservas sql = new Reservas();
+        Ciudad ciudades = new Ciudad();
         
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -22,6 +22,7 @@ namespace HotelAuditoria
                 drpCantidad.Items.Insert(0, new ListItem("Cantidad de Personas","0"));
                 drpCantidad.Items[0].Attributes["disabled"] = "disabled";
                 drpCantidad.SelectedValue = "0";
+                llenarCiudad();
             }
             
         }
@@ -34,11 +35,20 @@ namespace HotelAuditoria
             }
             else
             {
-                
-                App_code.dtBusqueda = sql.getHoteles(txtLlegada.Text, txtSalida.Text, drpHabitaciones.SelectedValue, drpCantidad.SelectedValue);
-                Server.Transfer("buscarhotel.aspx");
+                Response.Redirect("Busquedas.aspx?Llegada=" + txtLlegada.Text+"&Salida=" + txtSalida.Text +"&Destino="+drpCiudad.SelectedValue
+                    + "&Personas=" + drpCantidad.SelectedValue+ "&Habitaciones=" + drpHabitaciones.SelectedValue);
+                //App_code.dtBusqueda = sql.getHoteles(txtLlegada.Text, txtSalida.Text, drpHabitaciones.SelectedValue, drpCantidad.SelectedValue);
+                //Server.Transfer("buscarhotel.aspx");
 
             }
+        }
+        private void llenarCiudad()
+        {
+            DataTable dt = new DataTable();
+            dt = ciudades.getCiudades();
+            drpCiudad.DataSource = dt;
+            drpCiudad.DataTextField = "Ciudad_Nombre";
+            drpCiudad.DataValueField = "ID_Ciudad";
         }
     }
 }

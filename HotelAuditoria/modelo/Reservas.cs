@@ -29,7 +29,7 @@ namespace HotelAuditoria.modelo
             cmd.ExecuteNonQuery();
             con.Close();
         }
-        public DataTable getHoteles(string fecha_llegada,string fecha_salida,string cant, string personas)
+        public DataTable getHoteles(string fecha_llegada,string fecha_salida,string habitaciones, string personas,string ciudad)
         {
             DataTable dt = new DataTable();
             conexion cad = new conexion();
@@ -40,8 +40,9 @@ namespace HotelAuditoria.modelo
             cmd.CommandText = "SP_Busqueda";
             cmd.Parameters.AddWithValue("@FechaLlegada", fecha_llegada);
             cmd.Parameters.AddWithValue("@FechaSalida", fecha_salida);
-            cmd.Parameters.AddWithValue("@cant", cant);
+            cmd.Parameters.AddWithValue("@cant", habitaciones);
             cmd.Parameters.AddWithValue("@personas", personas);
+            cmd.Parameters.AddWithValue("@ciudad", ciudad);
             cmd.Connection = con;
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             con.Open();
