@@ -11,7 +11,7 @@ namespace HotelAuditoria
 {
     public partial class Busquedas : System.Web.UI.Page
     {
-        Reservas sql = new Reservas();
+        BusquedasHO sql = new BusquedasHO();
         protected void Page_Load(object sender, EventArgs e)
         {
             
@@ -22,6 +22,7 @@ namespace HotelAuditoria
                 drpHabitaciones.SelectedValue = Request.QueryString["Habitaciones"];
                 txtLlegada.Text = Request.QueryString["Llegada"];
                 txtSalida.Text = Request.QueryString["Salida"];
+                llenarCamposBusqueda();
             }
             else
             {
@@ -35,7 +36,8 @@ namespace HotelAuditoria
         protected void llenarCamposBusqueda()
         {
             DataTable dt = new DataTable();
-            dt = sql.getHoteles(txtLlegada.Text, txtSalida.Text, drpHabitaciones.SelectedValue, drpCantidad.SelectedValue);
+            dt = sql.getHoteles(txtLlegada.Text, txtSalida.Text, drpHabitaciones.SelectedValue, drpCantidad.SelectedValue,drpCiudad.SelectedValue);
+
         }
     }
 }
