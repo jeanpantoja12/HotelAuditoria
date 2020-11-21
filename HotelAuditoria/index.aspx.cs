@@ -46,9 +46,11 @@ namespace HotelAuditoria
         {
             DataTable dt = new DataTable();
             dt = ciudades.getCiudades();
-            drpCiudad.DataSource = dt;
-            drpCiudad.DataTextField = "Ciudad_Nombre";
+            
+            drpCiudad.DataTextField = "Ci_Nombre";
             drpCiudad.DataValueField = "ID_Ciudad";
+            drpCiudad.DataSource = dt;
+            drpCiudad.DataBind();
         }
     }
 }
