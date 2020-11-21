@@ -9,46 +9,71 @@ namespace HotelAuditoria.modelo
 {
     public class Reservas
     {
-        public void insertCliente(string nombre, string apellido, string tipodocumento, string numerodocumento, string direccion, string telefono, string email)
+        bool ejecuto;
+     
+
+
+        public bool insertReserva(string Nombre, string Apellido, string Direccion, string Telefono, string Correo, DateTime FechaEntrada, DateTime FechaSalida, int CantidadPersonas, double Precio)
         {
             conexion cad = new conexion();
             string StringConDB = cad.cadconexion();
             SqlConnection con = new SqlConnection(StringConDB);
             SqlCommand cmd = new SqlCommand();
             cmd.CommandType = CommandType.StoredProcedure;
-            cmd.CommandText = "SP_InsertarCliente";
-            cmd.Parameters.AddWithValue("@NombreCli", nombre);
-            cmd.Parameters.AddWithValue("@ApellidoCli", apellido);
-            cmd.Parameters.AddWithValue("@TipoDocumentoCli", tipodocumento);
-            cmd.Parameters.AddWithValue("@NumeroDocumentoCli", numerodocumento);
-            cmd.Parameters.AddWithValue("@DireccionCli", direccion);
-            cmd.Parameters.AddWithValue("@TelefonoCli", telefono);
-            cmd.Parameters.AddWithValue("@EmailCli", email);
+            cmd.CommandText = "Sp_Insert_Reserva2";
+            cmd.Parameters.AddWithValue("@Nombre", Nombre);
+            cmd.Parameters.AddWithValue("@Apellido", Apellido);
+            cmd.Parameters.AddWithValue("@Direccion", Direccion);
+            cmd.Parameters.AddWithValue("@Telefono", Telefono);
+            cmd.Parameters.AddWithValue("@Correo", Correo);
+            cmd.Parameters.AddWithValue("@FechaE", FechaEntrada);
+            cmd.Parameters.AddWithValue("@FechaS", FechaSalida);
+            cmd.Parameters.AddWithValue("@Cantidad", CantidadPersonas);
+            cmd.Parameters.AddWithValue("@Precio", Precio);
             cmd.Connection = con;
             con.Open();
-            cmd.ExecuteNonQuery();
-            con.Close();
+        
+            if (cmd.ExecuteNonQuery() > 0)
+            {
+                ejecuto = true;
+                con.Close();
+            }
+            else
+            {
+                ejecuto = false;
+                con.Close();
+            }
+            return ejecuto;
         }
-        public DataTable getHoteles(string fecha_llegada,string fecha_salida,string habitaciones, string personas,string ciudad)
+
+
+        public bool insertCliente(string Nombre, string Apellido, string Direccion, string Telefono, string Correo)
         {
-            DataTable dt = new DataTable();
             conexion cad = new conexion();
             string StringConDB = cad.cadconexion();
             SqlConnection con = new SqlConnection(StringConDB);
             SqlCommand cmd = new SqlCommand();
             cmd.CommandType = CommandType.StoredProcedure;
-            cmd.CommandText = "SP_Busqueda";
-            cmd.Parameters.AddWithValue("@FechaLlegada", fecha_llegada);
-            cmd.Parameters.AddWithValue("@FechaSalida", fecha_salida);
-            cmd.Parameters.AddWithValue("@cant", habitaciones);
-            cmd.Parameters.AddWithValue("@personas", personas);
-            cmd.Parameters.AddWithValue("@ciudad", ciudad);
+            cmd.CommandText = "Sp_Insert_Cliente";
+            cmd.Parameters.AddWithValue("@Nombre", Nombre);
+            cmd.Parameters.AddWithValue("@Apellido", Apellido);
+            cmd.Parameters.AddWithValue("@Direccion", Direccion);
+            cmd.Parameters.AddWithValue("@Telefono", Telefono);
+            cmd.Parameters.AddWithValue("@Correo", Correo);
             cmd.Connection = con;
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
             con.Open();
-            da.Fill(dt);
-            con.Close();
-            return dt;
+            if (cmd.ExecuteNonQuery() > 0)
+            {
+                ejecuto = true;
+                con.Close();
+            }
+            else
+            {
+                ejecuto = false;
+                con.Close();
+            }
+            return ejecuto;
         }
+
     }
 }

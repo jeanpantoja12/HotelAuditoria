@@ -30,94 +30,70 @@
                                 </div>
 								
 								<div class='row' id="resultados_ajax"></div>
-                                <!-- First & Last Name -->
+                                <!-- Nombres -- Apellidos -->
                                 <div class="row">
                                     <div class="col-md-6">
                                         <label>Nombres</label>
                                         <asp:TextBox ID="txtNombres" required  runat="server"></asp:TextBox>
-                                        
 									</div>
                                     <div class="col-md-6">
                                         <label>Apellidos</label>
                                         <asp:TextBox ID="txtApellidos" required  runat="server"></asp:TextBox>
 									</div>
                                 </div>
-                                <!-- Email & Phone  -->
+                                   <!-- Direccion  -->
+                                	<div class="row">
+                                    <div class="col-md-8">
+                                        <label>Dirección</label>
+                                         <asp:TextBox ID="txtDireccion" required  runat="server"></asp:TextBox>
+									</div>
+                                  
+                                </div>
+
+                                <!-- Email  -->
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <label>Correo electrónico</label>
-                                        <input type="email" name="email" id="email" required/> 
+                                        <label>Teléfono</label>
+                                        <asp:TextBox ID="txtTelefono" required  runat="server"></asp:TextBox>
 									</div>
                                     <div class="col-md-6">
-                                        <label>Teléfono</label>
-                                        <input type="text"  name="telefono" id="telefono" required /> 
-										
+                                        <label>Correo electrónico</label>
+                                        <asp:TextBox ID="txtCorreo" required  runat="server"></asp:TextBox> 
 									</div>
+                                    
                                 </div>
 								
-								<div class="row">
-                                    <div class="col-md-8">
-                                        <label>Calle</label>
-                                        <input type="text" name="calle" id="calle" required /> 
-									</div>
-                                    <div class="col-md-4">
-                                        <label>Nº</label>
-                                        <input type="text" name="calle_numero" id="calle_numero"/> 
-									</div>
-                                </div>
-								
-								<div class="row">
-                                    <div class="col-md-4">
-                                        <label>Ciudad</label>
-                                        <input type="text" name="ciudad" id="ciudad" required /> 
-									</div>
-                                    <div class="col-md-4">
-                                        <label>Código postal</label>
-                                        <input type="text" name="codigo_postal" id="codigo_postal" required /> 
-									</div>
-									<div class="col-md-4">
-                                        <label>País</label>
-                                        <input type="text" name="pais" id="pais" required /> 
-									</div>
-                                </div>
+															
 								
 								<div class="row">
                                     <div class="col-md-6">
                                         <label>Fecha ingreso</label>
-                                        <input type="text" class='datepicker' name="ingreso" id="ingreso" required /> 
+                                       <asp:TextBox ID="txtFechaIngreso" runat="server"></asp:TextBox>  
 									</div>
                                     <div class="col-md-6">
                                         <label>Fecha salida</label>
-                                        <input type="text"  class='datepicker' name="salida" id="salida" required/> 
+                                        <asp:TextBox ID="FechaSalida" runat="server"></asp:TextBox>  
 									</div>	
                                 </div>
 								
 								<div class="row">
                                     <div class="col-md-6">
-                                        <label>Personas</label>
-                                        <select class='form-control' required name="personas" id="personas">
-										  <option value="">--Selecciona--</option>
-										  <option value="1">1</option>
-										  <option value="2" selected="">2</option>
-										  <option value="3">3</option>
-										</select>
+                                        <label>Personas<br />
+                                       <br>
+                                        </label>
+                                            <asp:DropDownList ID="cboPersonas" runat="server">
+                                            <asp:ListItem>1</asp:ListItem>
+                                            <asp:ListItem>2</asp:ListItem>
+                                            <asp:ListItem>3</asp:ListItem>
+                                        </asp:DropDownList>
 									</div>
                                     <div class="col-md-6">
-                                        <label>Habitaciones</label>
-                                        <select class="form-control" required name="habitaciones" id="habitaciones">
-											<option value="">--Selecciona--</option>
-											<option value="Deluxe" selected="">Con baño</option>
-											<option value="Básico">Sin baño</option>
-										  </select> 
+                                        <label>Precio</label>
+                                     <asp:TextBox ID="txtPrecio"  runat="server"></asp:TextBox>  
 									</div>	
                                 </div>
 								<br>
-                               <div class='row'>
-								<div class='col-md-12'>
-									<label>Por favor describa sus necesidades, p. Camas supletorias, cunas para niños</label>
-									<input type="textarea" name="comentario" id="comentario" >
-								</div>
-							   </div>
+                       
                                 <div class="row">
                                     <div class="col-md-12">
                                         <asp:Button ID="btnEnviar" CssClass="adam-button" runat="server" Text="ENVIAR" OnClick="btnEnviar_Click" />
@@ -127,6 +103,7 @@
                             </form>
                         </div>
                     </div>
+                    <asp:Label ID="lblMensaje" runat="server" Text="Mensaje"></asp:Label>
                 </article>
                 <div class="clearfix"></div>
             </div>
