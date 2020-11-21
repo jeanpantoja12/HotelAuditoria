@@ -93,7 +93,7 @@
                 </div>
                 <div class="row mb_30">
                     <asp:PlaceHolder ID="plHoteles" runat="server"></asp:PlaceHolder>
-                    <div class="col-lg-12 col-sm-12">
+                    <%--<div class="col-lg-12 col-sm-12">
                         <div class="accomodation_item text-left">
                             <div class="col-md-4" style="float:left">
                             
@@ -117,32 +117,8 @@
                         </div>
                         </div>
                         
-                    </div>
-                                        <div class="col-lg-12 col-sm-12">
-                        <div class="accomodation_item text-left">
-                            <div class="col-md-4" style="float:left">
-                            
-                                <div class="hotel_img">
-                                <img src="image/room1.jpg" alt="">
-                                
-                                </div>
-                        </div>
-                        
-                        <div class="col-md-5" style="float:left">
-                                <a href="#"><h1 class="sec_h1">Hotel Los Pinos</h1></a>
-                            <h4>Dirección: <small>Jr. Los Pinos 150</small></h4>
-                            <h4>Precio Total: <small>S/.150.00</small></h4>
-                            <h4>Habitaciones: <small>2</small></h4>
-                            </div>
-                            <div class="col-md-3" style="float:left;align-content:center">
-                                <h4>Oferta:</h4>
-                                <h5>Huancayo</h5>
-                                <br />
-                            <a href="#" class="btn theme_btn button_hover" style="width:100%">Reservar</a>
-                        </div>
-                        </div>
-                        
-                    </div>
+                    </div>--%>
+                                       
                 </div>
             </div>
         </section>
