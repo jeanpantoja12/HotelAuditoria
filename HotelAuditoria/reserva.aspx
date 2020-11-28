@@ -19,7 +19,7 @@
                
                 <article class="col-md-12">
                     <!-- Start Subscribe Form -->
-                    <%-- Comentario --%>
+
                     <div class="row">
                         <div class="col-md-10 offset-md-1">
                             <form method="post" name="booking" runat="server" id="booking">
@@ -113,15 +113,15 @@
 
                                 <div class="row">
                                     
-                                    <div class="col-md-6">
+                                    <div class="col-md-10">
                                         <label>Habitaciones</label>
-                                        <asp:GridView ID="dgHabitaciones" runat="server" BackColor="White" BorderColor="#E7E7FF" BorderStyle="None" BorderWidth="1px" CellPadding="3" GridLines="Horizontal">
+                                        <asp:GridView ID="dgHabitaciones" runat="server" AutoGenerateColumns="false" BackColor="White" BorderColor="#E7E7FF" BorderStyle="None" BorderWidth="1px" CellPadding="3" GridLines="Horizontal">
                                             <AlternatingRowStyle BackColor="#F7F7F7" />
                                             <Columns>
                                                 <asp:BoundField DataField="ID_Habitacion" HeaderText="ID Habitación" />
-                                                <asp:BoundField DataField="HAB_Numero" HeaderText="Num de Habitaciones" />
+                                                <asp:BoundField DataField="HAB_Numero" HeaderText="Num de Habitacion" />
  
-                                                <asp:BoundField DataField="HAB_Precio" HeaderText="Precio" />
+                                                <asp:BoundField DataField="HAB_Precio" HeaderText="Precio(S/.)" />
                                                 <asp:BoundField DataField="HAB_Descripcion" HeaderText="Descripción" />
                                                 <asp:BoundField DataField="HAB_Tipo" HeaderText="Tipo" />
                                                 <asp:BoundField DataField="HAB_Personas" HeaderText="Cantidad de Personas" />
