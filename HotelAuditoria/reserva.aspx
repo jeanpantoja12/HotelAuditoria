@@ -109,6 +109,39 @@
                                      <asp:TextBox ID="txtPrecio"  runat="server"></asp:TextBox>  
 									</div>	
                                 </div>
+
+
+                                <div class="row">
+                                    
+                                    <div class="col-md-6">
+                                        <label>Habitaciones</label>
+                                        <asp:GridView ID="dgHabitaciones" runat="server" BackColor="White" BorderColor="#E7E7FF" BorderStyle="None" BorderWidth="1px" CellPadding="3" GridLines="Horizontal">
+                                            <AlternatingRowStyle BackColor="#F7F7F7" />
+                                            <Columns>
+                                                <asp:BoundField DataField="ID_Habitacion" HeaderText="ID Habitación" />
+                                                <asp:BoundField DataField="HAB_Numero" HeaderText="Num de Habitaciones" />
+ 
+                                                <asp:BoundField DataField="HAB_Precio" HeaderText="Precio" />
+                                                <asp:BoundField DataField="HAB_Descripcion" HeaderText="Descripción" />
+                                                <asp:BoundField DataField="HAB_Tipo" HeaderText="Tipo" />
+                                                <asp:BoundField DataField="HAB_Personas" HeaderText="Cantidad de Personas" />
+                                            </Columns>
+                                            <FooterStyle BackColor="#B5C7DE" ForeColor="#4A3C8C" />
+                                            <HeaderStyle BackColor="#4A3C8C" Font-Bold="True" ForeColor="#F7F7F7" />
+                                            <PagerStyle BackColor="#E7E7FF" ForeColor="#4A3C8C" HorizontalAlign="Right" />
+                                            <RowStyle BackColor="#E7E7FF" ForeColor="#4A3C8C" />
+                                            <SelectedRowStyle BackColor="#738A9C" Font-Bold="True" ForeColor="#F7F7F7" />
+                                            <SortedAscendingCellStyle BackColor="#F4F4FD" />
+                                            <SortedAscendingHeaderStyle BackColor="#5A4C9D" />
+                                            <SortedDescendingCellStyle BackColor="#D8D8F0" />
+                                            <SortedDescendingHeaderStyle BackColor="#3E3277" />
+                                        </asp:GridView>
+									</div>	
+                                </div>
+
+
+
+
 								<br>
                        
                                 <div class="row">
