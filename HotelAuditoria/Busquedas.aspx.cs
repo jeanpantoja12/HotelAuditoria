@@ -13,6 +13,8 @@ namespace HotelAuditoria
     {
         BusquedasHO sql = new BusquedasHO();
         Ciudad ciudades = new Ciudad();
+       
+
         protected void Page_Load(object sender, EventArgs e)
         {
             

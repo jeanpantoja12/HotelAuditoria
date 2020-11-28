@@ -66,20 +66,20 @@
 															
 								
 								<div class="row">
-                                    <div class="col-md-6">
-                                     <label>Fecha de LLegada</label>
-                                     <div class="form-group">
+                                <div class="col-md-6">
+                                        <label>Fecha de LLegada</label>
+                                         <div class="form-group">
                                                 <div class='input-group date' id='datetimepicker11'>
-                                                    <asp:TextBox ID="txtFechaIngreso" CssClass="form-control"  runat="server"></asp:TextBox>
+                                                    <asp:TextBox ID="txtFechaIngreso" CssClass="form-control" runat="server"></asp:TextBox>
                                                 
                                                     <span class="input-group-addon">
-                                                        <i class="fa fa-calendar" aria-hidden="true"></i>
+                                                        <i class="fa fa-calendar" aria-hidden="true">
+                                                    
+                                                    </i>
                                                     </span>
                                                 </div>
-                                            </div>				
-                                    
-                                    
-                                    </div>
+                                            </div>
+									</div>
                                     <div class="col-md-6">
                                      <label>Fecha de Salida</label>
                                         <div class="form-group">
@@ -87,7 +87,9 @@
                                                     <asp:TextBox ID="FechaSalida" CssClass="form-control" runat="server"></asp:TextBox>
                                                 
                                                     <span class="input-group-addon">
-                                                        <i class="fa fa-calendar" aria-hidden="true"></i>
+                                                        <i class="fa fa-calendar" aria-hidden="true">
+                                                    
+                                                    </i>
                                                     </span>
                                                 </div>
                                             </div>		 
@@ -96,26 +98,13 @@
                                 </div>
 
 
-                                
-								
-								<div class="row">
-                                    <div class="col-md-6">
-                                    
-                                         <label>Personas</label>
-                                        <asp:TextBox ID="cboPersonas" required  runat="server"></asp:TextBox>
-									</div>
-                                    <div class="col-md-6">
-                                        <label>Precio</label>
-                                     <asp:TextBox ID="txtPrecio"  runat="server"></asp:TextBox>  
-									</div>	
-                                </div>
 
 
                                 <div class="row">
                                     
-                                    <div class="col-md-10">
+                                    <div class="col-md-12">
                                         <label>Habitaciones</label>
-                                        <asp:GridView ID="dgHabitaciones" runat="server" AutoGenerateColumns="false" BackColor="White" BorderColor="#E7E7FF" BorderStyle="None" BorderWidth="1px" CellPadding="3" GridLines="Horizontal">
+                                        <asp:GridView ID="dgHabitaciones" runat="server" AutoGenerateColumns="false" BackColor="White" BorderColor="#E7E7FF" BorderStyle="None" BorderWidth="1px" CellPadding="3" GridLines="Horizontal" Width="100px">
                                             <AlternatingRowStyle BackColor="#F7F7F7" />
                                             <Columns>
                                                 <asp:BoundField DataField="ID_Habitacion" HeaderText="ID Habitación" />
@@ -135,11 +124,42 @@
                                             <SortedAscendingHeaderStyle BackColor="#5A4C9D" />
                                             <SortedDescendingCellStyle BackColor="#D8D8F0" />
                                             <SortedDescendingHeaderStyle BackColor="#3E3277" />
+                                            <Columns>
+                                            <asp:TemplateField>
+                                            <ItemTemplate>
+                                            <asp:CheckBox ID="checkDatos" runat="server" AutoPostBack="True" OnCheckedChanged="checkDatos_CheckedChanged" />
+                                            </ItemTemplate>
+                                            </asp:TemplateField>
+                                            </Columns>
                                         </asp:GridView>
 									</div>	
                                 </div>
 
 
+
+
+                          
+                                
+								
+								<div class="row">
+
+                               
+                                    <div class="col-md-6">
+                                    
+                                         <label>Personas</label>
+                                        <asp:TextBox ID="cboPersonas" required  runat="server"></asp:TextBox>
+									</div>
+                                    <div class="col-md-6">
+                                        <label>Precio</label>
+                                     <asp:TextBox ID="txtPrecio"  runat="server"></asp:TextBox>  
+									</div>
+                                    
+                                     <div class="col-md-6">
+                                    
+                                         &nbsp;<asp:TextBox ID="txtIdHabitacion" required  runat="server" Visible="False"></asp:TextBox>
+									</div>
+                                    	
+                                </div>
 
 
 								<br>
