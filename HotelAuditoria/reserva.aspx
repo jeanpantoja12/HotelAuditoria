@@ -67,25 +67,42 @@
 								
 								<div class="row">
                                     <div class="col-md-6">
-                                        <label>Fecha ingreso</label>
-                                       <asp:TextBox ID="txtFechaIngreso" runat="server"></asp:TextBox>  
-									</div>
+                                     <label>Fecha de LLegada</label>
+                                     <div class="form-group">
+                                                <div class='input-group date' id='datetimepicker11'>
+                                                    <asp:TextBox ID="txtFechaIngreso" CssClass="form-control"  runat="server"></asp:TextBox>
+                                                
+                                                    <span class="input-group-addon">
+                                                        <i class="fa fa-calendar" aria-hidden="true"></i>
+                                                    </span>
+                                                </div>
+                                            </div>				
+                                    
+                                    
+                                    </div>
                                     <div class="col-md-6">
-                                        <label>Fecha salida</label>
-                                        <asp:TextBox ID="FechaSalida" runat="server"></asp:TextBox>  
+                                     <label>Fecha de Salida</label>
+                                        <div class="form-group">
+                                                <div class='input-group date' id='datetimepicker11'>
+                                                    <asp:TextBox ID="FechaSalida" CssClass="form-control" runat="server"></asp:TextBox>
+                                                
+                                                    <span class="input-group-addon">
+                                                        <i class="fa fa-calendar" aria-hidden="true"></i>
+                                                    </span>
+                                                </div>
+                                            </div>		 
 									</div>	
+                                
                                 </div>
+
+
+                                
 								
 								<div class="row">
                                     <div class="col-md-6">
-                                        <label>Personas<br />
-                                       <br>
-                                        </label>
-                                            <asp:DropDownList ID="cboPersonas" runat="server">
-                                            <asp:ListItem>1</asp:ListItem>
-                                            <asp:ListItem>2</asp:ListItem>
-                                            <asp:ListItem>3</asp:ListItem>
-                                        </asp:DropDownList>
+                                    
+                                         <label>Personas</label>
+                                        <asp:TextBox ID="cboPersonas" required  runat="server"></asp:TextBox>
 									</div>
                                     <div class="col-md-6">
                                         <label>Precio</label>
