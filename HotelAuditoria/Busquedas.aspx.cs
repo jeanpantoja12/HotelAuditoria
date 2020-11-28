@@ -120,7 +120,8 @@ namespace HotelAuditoria
                 h4Habitaciones.InnerText ="Habitaciones: "+ dr[5].ToString();
                 h4Oferta.InnerText = "Oferta:";
                 h5Ciudad.InnerText = dr[3].ToString();
-                btnReserva.Attributes.Add("href", "reserva.aspx?ID="+dr[0].ToString());
+                btnReserva.Attributes.Add("href", "reserva.aspx?Hotel="+dr[0].ToString()+"&Llegada=" + Request.QueryString["Llegada"]+"&Salida=" + Request.QueryString["Salida"]
+                    + "&Personas=" + Request.QueryString["Personas"] + "&Habitaciones=" + Request.QueryString["Habitaciones"]);
                 btnReserva.InnerText = "Reservar";
             }
         }
