@@ -26,19 +26,6 @@ namespace HotelAuditoria
             
         }
 
-        protected void btnReservar_Click(object sender, EventArgs e)
-        {
-            if(txtLlegada.Text=="" || txtSalida.Text =="" || drpCiudad.SelectedValue.ToString() == "0")
-            {
-                MessageBox.Show("Error, insertar todos los campos");
-            }
-            else
-            {
-                
-                App_code.dtBusqueda = sql.getHoteles(txtLlegada.Text, txtSalida.Text, drpHabitaciones.SelectedValue, drpCantidad.SelectedValue);
-                Server.Transfer("buscarhotel.aspx");
-
-            }
-        }
+       
     }
 }
