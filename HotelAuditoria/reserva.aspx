@@ -19,7 +19,7 @@
                
                 <article class="col-md-12">
                     <!-- Start Subscribe Form -->
-
+                    <%-- Comentario --%>
                     <div class="row">
                         <div class="col-md-10 offset-md-1">
                             <form method="post" name="booking" runat="server" id="booking">
