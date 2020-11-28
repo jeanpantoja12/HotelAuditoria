@@ -91,7 +91,7 @@ namespace HotelAuditoria {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList cboPersonas;
+        protected global::System.Web.UI.WebControls.TextBox cboPersonas;
         
         /// <summary>
         /// txtPrecio control.
