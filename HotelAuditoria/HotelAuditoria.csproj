@@ -264,6 +264,7 @@
     <Content Include="vendors\owl-carousel\owl.carousel.min.js" />
     <Content Include="Web.config" />
     <Content Include="index.aspx" />
+    <Content Include="reserva.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Busquedas.aspx.cs">
@@ -294,6 +295,13 @@
       <DependentUpon>index.aspx</DependentUpon>
     </Compile>
     <Compile Include="negocio\App_code.cs" />
+    <Compile Include="reserva.aspx.cs">
+      <DependentUpon>reserva.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="reserva.aspx.designer.cs">
+      <DependentUpon>reserva.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include=".gitattributes" />
