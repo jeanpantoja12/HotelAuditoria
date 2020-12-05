@@ -80,7 +80,7 @@ namespace HotelAuditoria
                     idRes = reserva.insertReserva(txtNombres.Text, txtApellidos.Text, txtDireccion.Text, txtTelefono.Text, txtCorreo.Text, System.DateTime.Parse(txtFechaIngreso.Text), System.DateTime.Parse(txtSalida.Text), int.Parse(cboPersonas.Text), double.Parse(txtPrecio.Text));
                     foreach (GridViewRow dr in dgHabitaciones.Rows)
                     {
-                        CheckBox check = (dr.Cells[2].FindControl("checkDatos") as CheckBox);
+                        CheckBox check = (dr.Cells[0].FindControl("checkDatos") as CheckBox);
 
                         if (check != null)
                         {
@@ -92,7 +92,7 @@ namespace HotelAuditoria
                     }
                     
                     ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "Swal.fire('Venta Registrada','Datos Guardados Correctamente','success').then((value) => { window.location ='index.aspx'; });", true);
-                    SendMail();
+                  //  SendMail();
                 }
                 else
                 {
@@ -124,13 +124,14 @@ namespace HotelAuditoria
                 {
                     if (check.Checked)
                     {
-                         suma = dgHabitaciones.Rows.Cast<GridViewRow>().Sum(x => Convert.ToDecimal(x.Cells[2].Text));
+                        suma = dgHabitaciones.Rows.Cast<GridViewRow>().Sum(x => Convert.ToDecimal(x.Cells[2].Text));
                         totalpersonas= dgHabitaciones.Rows.Cast<GridViewRow>().Sum(x => Convert.ToInt32(x.Cells[5].Text));
                         
-                        txtPrecio.Text = Convert.ToString(suma);
-                        cboPersonas.Text = Convert.ToString(totalpersonas);
+                       
 
                     }
+                    txtPrecio.Text = Convert.ToString(suma);
+                    cboPersonas.Text = Convert.ToString(totalpersonas);
                 }
 
 
