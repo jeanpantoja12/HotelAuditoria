@@ -84,7 +84,7 @@
                                      <label>Fecha de Salida</label>
                                         <div class="form-group">
                                                 <div class='input-group date' id='datetimepicker11'>
-                                                    <asp:TextBox ID="FechaSalida" CssClass="form-control" runat="server"></asp:TextBox>
+                                                    <asp:TextBox ID="txtSalida" CssClass="form-control" runat="server"></asp:TextBox>
                                                 
                                                     <span class="input-group-addon">
                                                         <i class="fa fa-calendar" aria-hidden="true">

@@ -55,7 +55,8 @@ namespace HotelAuditoria
                 habitaciones = (Convert.ToInt32(Request.QueryString["Habitaciones"]) / 2).ToString();
                 personas = (Convert.ToInt32(Request.QueryString["Personas"]) / 2).ToString();
             }
-            
+            txtFechaIngreso.Text = Request.QueryString["Llegada"];
+            txtSalida.Text = Request.QueryString["Salida"];
             dt = ho.getHabitacionesHotel(Request.QueryString["Llegada"], Request.QueryString["Salida"], habitaciones, personas, Request.QueryString["Hotel"]);
             dgHabitaciones.DataSource = dt;
             dgHabitaciones.DataBind();
@@ -66,7 +67,8 @@ namespace HotelAuditoria
 
             if (txtNombres.Text != "" & txtApellidos.Text != "" & txtDireccion.Text != "" & txtCorreo.Text != "")
             {
-                if (reserva.insertReserva(txtNombres.Text, txtApellidos.Text, txtDireccion.Text, txtTelefono.Text, txtCorreo.Text, System.DateTime.Parse(txtFechaIngreso.Text), System.DateTime.Parse(FechaSalida.Text), int.Parse(cboPersonas.Text), double.Parse(txtPrecio.Text), int.Parse(txtIdHabitacion.Text)) )
+
+                if (reserva.insertReserva(txtNombres.Text, txtApellidos.Text, txtDireccion.Text, txtTelefono.Text, txtCorreo.Text, System.DateTime.Parse(txtFechaIngreso.Text), System.DateTime.Parse(txtSalida.Text), int.Parse(cboPersonas.Text), double.Parse(txtPrecio.Text), int.Parse(txtIdHabitacion.Text)) )
 
                 {
                     lblMensaje.Text = "El registro se guardo correctamente";
@@ -76,7 +78,7 @@ namespace HotelAuditoria
                     txtTelefono.Text = "";
                     txtCorreo.Text = "";
                     txtFechaIngreso.Text = "";
-                    FechaSalida.Text = "";
+                    txtSalida.Text = "";
                     cboPersonas.Text = "";
                     txtPrecio.Text = "";
 
