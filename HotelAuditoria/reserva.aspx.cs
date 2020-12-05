@@ -147,9 +147,9 @@ namespace HotelAuditoria
         protected void SendMail()
         {
        
-            var fromAddress = "correo";
+            var fromAddress = "ghgiancohg@gmail.com";
             var toAddress = txtCorreo.Text.ToString();
-            const string fromPassword = "contraseña";
+            const string fromPassword = "trentrigo";
 
             string subject = txtCorreo.Text.ToString();
             string body = "From: " + txtNombres.Text + "n";
@@ -169,10 +169,11 @@ namespace HotelAuditoria
                 smtp.Port = 587;
                 smtp.EnableSsl = true;
                 smtp.DeliveryMethod = System.Net.Mail.SmtpDeliveryMethod.Network;
+                smtp.UseDefaultCredentials = false;
                 smtp.Credentials = new NetworkCredential(fromAddress, fromPassword);
                 smtp.Timeout = 20000;
             }
-      
+        
             smtp.Send(fromAddress, toAddress, subject, body);
         }
 
