@@ -28,6 +28,17 @@ namespace HotelAuditoria
                 }
             }
 
+          
+            
+           // if (Request.Params["parametro"]!=null)
+            //{
+              //  txtFechaIngreso.Text = Request.Params["parametro"];
+            //}
+
+
+
+
+      
         }
         private void llenarDatos()
         {
@@ -55,7 +66,7 @@ namespace HotelAuditoria
 
             if (txtNombres.Text != "" & txtApellidos.Text != "" & txtDireccion.Text != "" & txtCorreo.Text != "")
             {
-                if (reserva.insertReserva(txtNombres.Text, txtApellidos.Text, txtDireccion.Text, txtTelefono.Text, txtCorreo.Text, System.DateTime.Parse(txtFechaIngreso.Text), System.DateTime.Parse(FechaSalida.Text), int.Parse(cboPersonas.Text), double.Parse(txtPrecio.Text)))
+                if (reserva.insertReserva(txtNombres.Text, txtApellidos.Text, txtDireccion.Text, txtTelefono.Text, txtCorreo.Text, System.DateTime.Parse(txtFechaIngreso.Text), System.DateTime.Parse(FechaSalida.Text), int.Parse(cboPersonas.Text), double.Parse(txtPrecio.Text), int.Parse(txtIdHabitacion.Text)) )
 
                 {
                     lblMensaje.Text = "El registro se guardo correctamente";
@@ -83,6 +94,14 @@ namespace HotelAuditoria
                 lblMensaje.Text = "Por favor completa los campos";
             }
 
+        }
+
+        protected void checkDatos_CheckedChanged(object sender, EventArgs e)
+        {
+            int rowID = ((GridViewRow)(sender as Control).NamingContainer).RowIndex;
+            cboPersonas.Text = dgHabitaciones.Rows[rowID].Cells[5].Text;
+            txtPrecio.Text = dgHabitaciones.Rows[rowID].Cells[2].Text;
+            txtIdHabitacion.Text = dgHabitaciones.Rows[rowID].Cells[0].Text;
         }
     }
 }

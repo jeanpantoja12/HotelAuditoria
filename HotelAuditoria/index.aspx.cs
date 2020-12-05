@@ -14,7 +14,9 @@ namespace HotelAuditoria
     public partial class WebForm1 : System.Web.UI.Page
     {
         Ciudad ciudades = new Ciudad();
-        
+      
+       
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack)
@@ -40,7 +42,13 @@ namespace HotelAuditoria
                 //App_code.dtBusqueda = sql.getHoteles(txtLlegada.Text, txtSalida.Text, drpHabitaciones.SelectedValue, drpCantidad.SelectedValue);
                 //Server.Transfer("buscarhotel.aspx");
 
+
+
+              //  Response.Redirect("reserva.aspx?parametro=" + txtLlegada.Text);
             }
+
+            
+
         }
         private void llenarCiudad()
         {

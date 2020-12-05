@@ -13,7 +13,7 @@ namespace HotelAuditoria.modelo
      
 
 
-        public bool insertReserva(string Nombre, string Apellido, string Direccion, string Telefono, string Correo, DateTime FechaEntrada, DateTime FechaSalida, int CantidadPersonas, double Precio)
+        public bool insertReserva(string Nombre, string Apellido, string Direccion, string Telefono, string Correo, DateTime FechaEntrada, DateTime FechaSalida, int CantidadPersonas, double Precio, int idhab)
         {
             conexion cad = new conexion();
             string StringConDB = cad.cadconexion();
@@ -30,6 +30,7 @@ namespace HotelAuditoria.modelo
             cmd.Parameters.AddWithValue("@FechaS", FechaSalida);
             cmd.Parameters.AddWithValue("@Cantidad", CantidadPersonas);
             cmd.Parameters.AddWithValue("@Precio", Precio);
+            cmd.Parameters.AddWithValue("@idhab", idhab);
             cmd.Connection = con;
             con.Open();
         
