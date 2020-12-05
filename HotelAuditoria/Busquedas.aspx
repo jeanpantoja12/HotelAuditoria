@@ -72,7 +72,7 @@
                                                 </asp:DropDownList>
 
                                             </div>
-                                            <asp:Button ID="btnReservar" runat="server" Text="Buscar"  CssClass="book_now_btn button_hover"/>
+                                            <asp:Button ID="btnReservar" runat="server" Text="Buscar"  CssClass="book_now_btn button_hover" OnClick="btnReservar_Click"/>
                                             
                                         </div>
                                     </div>

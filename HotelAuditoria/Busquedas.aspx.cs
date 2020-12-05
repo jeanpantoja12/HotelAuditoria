@@ -16,24 +16,24 @@ namespace HotelAuditoria
         protected void Page_Load(object sender, EventArgs e)
         {
             
-            if( Request.QueryString["Destino"] != null && Request.QueryString["Personas"] != null && Request.QueryString["Habitaciones"] !=null)
-            {
-                llenarCiudad();
-                drpCiudad.SelectedValue = Request.QueryString["Destino"];
-                drpCantidad.SelectedValue = Request.QueryString["Personas"];
-                drpHabitaciones.SelectedValue = Request.QueryString["Habitaciones"];
-                //drpCiudad.SelectedValue = Request.QueryString["Ciudad"];
-                txtLlegada.Text = Request.QueryString["Llegada"];
-                txtSalida.Text = Request.QueryString["Salida"];
-                llenarCamposBusqueda();
-            }
-            else
-            {
-                Response.Redirect("index.aspx");
-            }
+            
             if (!Page.IsPostBack)
             {
-
+                if (Request.QueryString["Destino"] != null && Request.QueryString["Personas"] != null && Request.QueryString["Habitaciones"] != null)
+                {
+                    llenarCiudad();
+                    drpCiudad.SelectedValue = Request.QueryString["Destino"];
+                    drpCantidad.SelectedValue = Request.QueryString["Personas"];
+                    drpHabitaciones.SelectedValue = Request.QueryString["Habitaciones"];
+                    //drpCiudad.SelectedValue = Request.QueryString["Ciudad"];
+                    txtLlegada.Text = Request.QueryString["Llegada"];
+                    txtSalida.Text = Request.QueryString["Salida"];
+                    llenarCamposBusqueda();
+                }
+                else
+                {
+                    Response.Redirect("index.aspx");
+                }
             }
         }
         private void llenarCiudad()
@@ -124,6 +124,13 @@ namespace HotelAuditoria
                     + "&Personas=" + Request.QueryString["Personas"] + "&Habitaciones=" + Request.QueryString["Habitaciones"]);
                 btnReserva.InnerText = "Reservar";
             }
+        }
+
+        protected void btnReservar_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Busquedas.aspx?Llegada=" + txtLlegada.Text + "&Salida=" + txtSalida.Text + "&Destino=" + drpCiudad.SelectedValue
+                    + "&Personas=" + drpCantidad.SelectedValue + "&Habitaciones=" + drpHabitaciones.SelectedValue);
+            llenarCamposBusqueda();
         }
     }
 }

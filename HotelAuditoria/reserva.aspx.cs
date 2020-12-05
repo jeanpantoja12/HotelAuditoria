@@ -32,8 +32,20 @@ namespace HotelAuditoria
         private void llenarDatos()
         {
             DataTable dt = new DataTable();
-
-            dt = ho.getHabitacionesHotel(Request.QueryString["Llegada"], Request.QueryString["Salida"], Convert.ToString(Convert.ToInt32(Request.QueryString["Habitaciones"]) / 2), Convert.ToString(Convert.ToInt32(Request.QueryString["Personas"]) / 2), Request.QueryString["Hotel"]);
+            string habitaciones;
+            string personas;
+            if (Convert.ToInt32(Request.QueryString["Habitaciones"]) == 1)
+            {
+                habitaciones = Request.QueryString["Habitaciones"];
+                personas = Request.QueryString["Personas"];
+            }
+            else
+            {
+                habitaciones = (Convert.ToInt32(Request.QueryString["Habitaciones"]) / 2).ToString();
+                personas = (Convert.ToInt32(Request.QueryString["Personas"]) / 2).ToString();
+            }
+            
+            dt = ho.getHabitacionesHotel(Request.QueryString["Llegada"], Request.QueryString["Salida"], habitaciones, personas, Request.QueryString["Hotel"]);
             dgHabitaciones.DataSource = dt;
             dgHabitaciones.DataBind();
         }
