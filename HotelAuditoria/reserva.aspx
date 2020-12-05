@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="css/pagestyle.css" type="text/css" />
     <!-- Form style -->
     <link rel="stylesheet" href="css/formstyle.css" type="text/css" />
+    <link rel="stylesheet" href="css/sweetalert2.min.css">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
     <div class="container testimonial_area">
@@ -170,7 +171,7 @@
                                         
                                     </div>
 
-                                    <asp:Button ID="calcular" runat="server" Text="CALCULAR" OnClick="calcular_Click1" />
+                                    <%--<asp:Button ID="calcular" runat="server" Text="CALCULAR" OnClick="calcular_Click1" />--%>
                                       
                                
                                 </div>
@@ -185,4 +186,6 @@
     </div>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="script" runat="server">
+    
+
 </asp:Content>

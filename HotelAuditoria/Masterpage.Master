@@ -20,10 +20,12 @@
             <!-- prueba commnit Cecili ;) -->
             <link rel="stylesheet" href="css/style.css">
             <link rel="stylesheet" href="css/responsive.css">
+            <script src="js/sweetalert2.js"></script>
         <asp:ContentPlaceHolder ID="head" runat="server">
                 </asp:ContentPlaceHolder>
         </head>
         <body>
+            
             <!--================Header Area =================-->
             <header class="header_area">
                 <div class="container">
@@ -138,8 +140,7 @@
         </footer>
             <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-        <asp:ContentPlaceHolder ID="script" runat="server">
-        </asp:ContentPlaceHolder>
+        
         <script src="js/jquery-3.2.1.min.js"></script>
         <script src="js/popper.js"></script>
         <script src="js/bootstrap.min.js"></script>
@@ -152,5 +153,7 @@
         <script src="js/stellar.js"></script>
         <script src="vendors/lightbox/simpleLightbox.min.js"></script>
         <script src="js/custom.js"></script>
+            <asp:ContentPlaceHolder ID="script" runat="server">
+        </asp:ContentPlaceHolder>
     </body>
 </html>

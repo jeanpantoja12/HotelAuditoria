@@ -54,6 +54,7 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Configuration" />
@@ -80,6 +81,7 @@
     <Content Include="css\responsive.css" />
     <Content Include="css\style %28Mohammad Rocky%27s conflicted copy 2018-05-08%29.css" />
     <Content Include="css\style.css" />
+    <Content Include="css\sweetalert2.min.css" />
     <Content Include="css\_elements.css" />
     <Content Include="css\_footer.css" />
     <Content Include="css\_testimonial.css" />
@@ -189,6 +191,7 @@
     <Content Include="js\mail-script.js" />
     <Content Include="js\popper.js" />
     <Content Include="js\stellar.js" />
+    <Content Include="js\sweetalert2.js" />
     <Content Include="royal-Doc\css\font-awesome.min.css" />
     <Content Include="royal-Doc\css\main.css" />
     <Content Include="royal-Doc\css\normalize.min.css" />

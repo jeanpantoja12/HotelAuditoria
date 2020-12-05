@@ -13,7 +13,7 @@ namespace HotelAuditoria
     {
         BusquedasHO ho = new BusquedasHO();
         Reservas reserva = new Reservas();
-
+        private int idRes;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack)
@@ -51,39 +51,56 @@ namespace HotelAuditoria
             dgHabitaciones.DataSource = dt;
             dgHabitaciones.DataBind();
         }
+        protected int contarFilas()
+        {
+            int contFilas = 0;
+            foreach (GridViewRow dr in dgHabitaciones.Rows)
+            {
+                CheckBox check = (dr.Cells[2].FindControl("checkDatos") as CheckBox);
+
+                if (check != null)
+                {
+                    if (check.Checked)
+                    {
+                        contFilas++;
+                    }
+                }
+            }
+            return contFilas;
+        }
         protected void btnEnviar_Click(object sender, EventArgs e)
         {
-
-
+            int contadorFilas = 0;
             if (txtNombres.Text != "" & txtApellidos.Text != "" & txtDireccion.Text != "" & txtCorreo.Text != "")
             {
-
-                if (reserva.insertReserva(txtNombres.Text, txtApellidos.Text, txtDireccion.Text, txtTelefono.Text, txtCorreo.Text, System.DateTime.Parse(txtFechaIngreso.Text), System.DateTime.Parse(txtSalida.Text), int.Parse(cboPersonas.Text), double.Parse(txtPrecio.Text), int.Parse(txtIdHabitacion.Text)))
-
+                contadorFilas = contarFilas();
+                if (contadorFilas == Convert.ToInt32(Request.QueryString["Habitaciones"]))
                 {
-                    lblMensaje.Text = "El registro se guardo correctamente";
-                    txtNombres.Text = "";
-                    txtApellidos.Text = "";
-                    txtDireccion.Text = "";
-                    txtTelefono.Text = "";
-                    txtCorreo.Text = "";
-                    txtFechaIngreso.Text = "";
-                    txtSalida.Text = "";
-                    cboPersonas.Text = "";
-                    txtPrecio.Text = "";
+                    idRes = reserva.insertReserva(txtNombres.Text, txtApellidos.Text, txtDireccion.Text, txtTelefono.Text, txtCorreo.Text, System.DateTime.Parse(txtFechaIngreso.Text), System.DateTime.Parse(txtSalida.Text), int.Parse(cboPersonas.Text), double.Parse(txtPrecio.Text));
+                    foreach (GridViewRow dr in dgHabitaciones.Rows)
+                    {
+                        CheckBox check = (dr.Cells[2].FindControl("checkDatos") as CheckBox);
 
+                        if (check != null)
+                        {
+                            if (check.Checked)
+                            {
+                                reserva.insertTReservaHab(idRes.ToString(), dr.Cells[0].Text);
+                            }
+                        }
+                    }
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "Swal.fire('Venta Registrada','Datos Guardados Correctamente','success').then((value) => { window.location ='index.aspx'; });", true);
                 }
                 else
                 {
-                    lblMensaje.Text = "El registro no se pudo guardar";
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "Swal.fire('Error','La cantidad de habitaciones es incorrecta.','error');", true);
                 }
-
-
 
             }
             else
             {
-                lblMensaje.Text = "Por favor completa los campos";
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "Swal.fire('Error','Completar los datos correctamente.','error');", true);
+                //lblMensaje.Text = "Por favor completa los campos";
             }
 
         }

@@ -13,8 +13,9 @@ namespace HotelAuditoria.modelo
      
 
 
-        public bool insertReserva(string Nombre, string Apellido, string Direccion, string Telefono, string Correo, DateTime FechaEntrada, DateTime FechaSalida, int CantidadPersonas, double Precio, int idhab)
+        public int insertReserva(string Nombre, string Apellido, string Direccion, string Telefono, string Correo, DateTime FechaEntrada, DateTime FechaSalida, int CantidadPersonas, double Precio)
         {
+            DataTable dt = new DataTable();
             conexion cad = new conexion();
             string StringConDB = cad.cadconexion();
             SqlConnection con = new SqlConnection(StringConDB);
@@ -30,10 +31,36 @@ namespace HotelAuditoria.modelo
             cmd.Parameters.AddWithValue("@FechaS", FechaSalida);
             cmd.Parameters.AddWithValue("@Cantidad", CantidadPersonas);
             cmd.Parameters.AddWithValue("@Precio", Precio);
-            cmd.Parameters.AddWithValue("@idhab", idhab);
+            cmd.Parameters.Add("@retVal", System.Data.SqlDbType.Int);
+            cmd.Parameters["@retVal"].Direction = ParameterDirection.ReturnValue;
             cmd.Connection = con;
             con.Open();
-        
+            if (cmd.ExecuteNonQuery() > 0)
+            {
+                ejecuto = true;
+                con.Close();
+
+            }
+            else
+            {
+                ejecuto = false;
+                con.Close();
+                return 0;
+            }
+            return (int)cmd.Parameters["@retVal"].Value;
+        }
+        public bool insertTReservaHab(string reserva, string hab)
+        {
+            conexion cad = new conexion();
+            string StringConDB = cad.cadconexion();
+            SqlConnection con = new SqlConnection(StringConDB);
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.CommandText = "Sp_Insert_ReservaHAB";
+            cmd.Parameters.AddWithValue("@Reserva", reserva);
+            cmd.Parameters.AddWithValue("@Habitacion", hab);
+            cmd.Connection = con;
+            con.Open();
             if (cmd.ExecuteNonQuery() > 0)
             {
                 ejecuto = true;
@@ -46,7 +73,6 @@ namespace HotelAuditoria.modelo
             }
             return ejecuto;
         }
-
 
         public bool insertCliente(string Nombre, string Apellido, string Direccion, string Telefono, string Correo)
         {
