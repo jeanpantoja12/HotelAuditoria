@@ -134,12 +134,7 @@
                                             </Columns>
                                         </asp:GridView>
 									</div>	
-                                </div>
-
-
-
-
-                          
+                                </div>               
                                 
 								
 								<div class="row">
@@ -171,7 +166,7 @@
                                         
                                     </div>
 
-                                    <%--<asp:Button ID="calcular" runat="server" Text="CALCULAR" OnClick="calcular_Click1" />--%>
+                                  
                                       
                                
                                 </div>

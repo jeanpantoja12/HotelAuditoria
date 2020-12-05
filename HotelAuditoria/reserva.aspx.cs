@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -89,7 +90,9 @@ namespace HotelAuditoria
                             }
                         }
                     }
+                    
                     ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "Swal.fire('Venta Registrada','Datos Guardados Correctamente','success').then((value) => { window.location ='index.aspx'; });", true);
+                    SendMail();
                 }
                 else
                 {
@@ -108,11 +111,11 @@ namespace HotelAuditoria
         protected void checkDatos_CheckedChanged(object sender, EventArgs e)
         {
                         int rowID = ((GridViewRow)(sender as Control).NamingContainer).RowIndex;
-            cboPersonas.Text = dgHabitaciones.Rows[rowID].Cells[5].Text;
+          
             txtIdHabitacion.Text = dgHabitaciones.Rows[rowID].Cells[0].Text;
 
             decimal suma=0;
-   
+            int totalpersonas = 0;
             foreach (GridViewRow grvRow in dgHabitaciones.Rows)
             {
                CheckBox check = (grvRow.Cells[2].FindControl("checkDatos") as CheckBox);
@@ -122,9 +125,11 @@ namespace HotelAuditoria
                     if (check.Checked)
                     {
                          suma = dgHabitaciones.Rows.Cast<GridViewRow>().Sum(x => Convert.ToDecimal(x.Cells[2].Text));
-
-                        txtPrecio.Text = Convert.ToString(suma);
+                        totalpersonas= dgHabitaciones.Rows.Cast<GridViewRow>().Sum(x => Convert.ToInt32(x.Cells[5].Text));
                         
+                        txtPrecio.Text = Convert.ToString(suma);
+                        cboPersonas.Text = Convert.ToString(totalpersonas);
+
                     }
                 }
 
@@ -137,7 +142,40 @@ namespace HotelAuditoria
 
         }
 
-   
+       
+
+        protected void SendMail()
+        {
+       
+            var fromAddress = "correo";
+            var toAddress = txtCorreo.Text.ToString();
+            const string fromPassword = "contraseña";
+
+            string subject = txtCorreo.Text.ToString();
+            string body = "From: " + txtNombres.Text + "n";
+            body += "Email: " + txtCorreo.Text + "n";
+            body += "Nombres: " + txtNombres.Text + "n";
+            body += "Apellidos: n" + txtApellidos.Text + "n";
+            body += "Direccion: n" + txtDireccion.Text + "n";
+            body += "Telefono: n" + txtTelefono.Text + "n";
+            body += "Fecha LLegada: n" + txtFechaIngreso.Text + "n";
+            body += "Fecha Salida: n" + txtSalida.Text + "n";
+            body += "Cantidad personas: n" + cboPersonas.Text + "n";
+            body += "Precio total: n" + txtPrecio.Text + "n";
+
+            var smtp = new System.Net.Mail.SmtpClient();
+            {
+                smtp.Host = "smtp.gmail.com";
+                smtp.Port = 587;
+                smtp.EnableSsl = true;
+                smtp.DeliveryMethod = System.Net.Mail.SmtpDeliveryMethod.Network;
+                smtp.Credentials = new NetworkCredential(fromAddress, fromPassword);
+                smtp.Timeout = 20000;
+            }
       
+            smtp.Send(fromAddress, toAddress, subject, body);
+        }
+
+
     }
     }
