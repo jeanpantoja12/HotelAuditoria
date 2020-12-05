@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Masterpage.Master" AutoEventWireup="true" CodeBehind="reserva.aspx.cs" Inherits="HotelAuditoria.WebForm2" %>
+<%@ Page Title="" Language="C#" MasterPageFile="~/Masterpage.Master" AutoEventWireup="true" CodeBehind="reserva.aspx.cs" Inherits="HotelAuditoria.WebForm2" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
         <!-- Google font -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,400i,700&amp;subset=latin-ext" />
@@ -28,25 +28,25 @@
                                     <div class="title">Reservar Habitación</div>
                                    
                                 </div>
-								
-								<div class='row' id="resultados_ajax"></div>
+                                
+                                <div class='row' id="resultados_ajax"></div>
                                 <!-- Nombres -- Apellidos -->
                                 <div class="row">
                                     <div class="col-md-6">
                                         <label>Nombres</label>
                                         <asp:TextBox ID="txtNombres" required  runat="server"></asp:TextBox>
-									</div>
+                                    </div>
                                     <div class="col-md-6">
                                         <label>Apellidos</label>
                                         <asp:TextBox ID="txtApellidos" required  runat="server"></asp:TextBox>
-									</div>
+                                    </div>
                                 </div>
                                    <!-- Direccion  -->
-                                	<div class="row">
+                                    <div class="row">
                                     <div class="col-md-8">
                                         <label>Dirección</label>
                                          <asp:TextBox ID="txtDireccion" required  runat="server"></asp:TextBox>
-									</div>
+                                    </div>
                                   
                                 </div>
 
@@ -55,17 +55,17 @@
                                     <div class="col-md-6">
                                         <label>Teléfono</label>
                                         <asp:TextBox ID="txtTelefono" required type="number" runat="server"></asp:TextBox>
-									</div>
+                                    </div>
                                     <div class="col-md-6">
                                         <label>Correo electrónico</label>
                                         <asp:TextBox ID="txtCorreo" required type="email" runat="server"></asp:TextBox> 
-									</div>
+                                    </div>
                                     
                                 </div>
-								
-															
-								
-								<div class="row">
+                                
+                                                            
+                                
+                                <div class="row">
                                 <div class="col-md-6">
                                         <label>Fecha de LLegada</label>
                                          <div class="form-group">
@@ -79,7 +79,7 @@
                                                     </span>
                                                 </div>
                                             </div>
-									</div>
+                                    </div>
                                     <div class="col-md-6">
                                      <label>Fecha de Salida</label>
                                         <div class="form-group">
@@ -92,8 +92,8 @@
                                                     </i>
                                                     </span>
                                                 </div>
-                                            </div>		 
-									</div>	
+                                            </div>       
+                                    </div>  
                                 
                                 </div>
 
@@ -132,7 +132,7 @@
                                             </asp:TemplateField>
                                             </Columns>
                                         </asp:GridView>
-									</div>	
+                                    </div>  
                                 </div>
 
 
@@ -140,29 +140,29 @@
 
                           
                                 
-								
-								<div class="row">
+                                
+                                <div class="row">
 
                                
                                     <div class="col-md-6">
                                     
                                          <label>Personas</label>
                                         <asp:TextBox ID="cboPersonas" Enabled="false"  runat="server"></asp:TextBox>
-									</div>
+                                    </div>
                                     <div class="col-md-6">
                                         <label>Precio</label>
                                      <asp:TextBox ID="txtPrecio" Enabled="false" runat="server"></asp:TextBox>  
-									</div>
+                                    </div>
                                     
                                      <div class="col-md-6">
                                     
                                          &nbsp;<asp:TextBox ID="txtIdHabitacion"  runat="server" Visible="False"></asp:TextBox>
-									</div>
-                                    	
+                                    </div>
+                                        
                                 </div>
 
 
-								<br>
+                                <br>
                        
                                 <div class="row">
                                     <div class="col-md-12">
