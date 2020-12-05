@@ -15,10 +15,21 @@ namespace HotelAuditoria
         BusquedasHO ho = new BusquedasHO();
         Reservas reserva = new Reservas();
         private int idRes;
+        private string personas;
+        private string cantidad;
         protected void Page_Load(object sender, EventArgs e)
         {
+            string query = Request.QueryString["Personas"];
+            string query2 = Request.QueryString["Habitaciones"];
+            if (null == Session["PersonasID"] && null==Session["HabID"])
+            {
+                Session["PersonasID"] = query;
+                Session["HabID"] = query2;
+            }
             if (!Page.IsPostBack)
             {
+                personas = Request.QueryString["Personas"];
+                cantidad = Request.QueryString["Habitaciones"];
                 if (Request.QueryString["Llegada"] != null && Request.QueryString["Personas"] != null && Request.QueryString["Habitaciones"] != null)
                 {
                     llenarDatos();
@@ -28,7 +39,23 @@ namespace HotelAuditoria
                     Response.Redirect("index.aspx");
                 }
             }
-
+            string personasCheck = "";
+            string habitacionesCheck = "";
+            try
+            {
+                personasCheck = Session["PersonasID"].ToString();
+                habitacionesCheck = Session["HabID"].ToString();
+            }
+            catch (Exception)
+            {
+                Session.Abandon();
+                Response.Redirect("index.aspx");
+            }
+            if(personasCheck.Equals(Request.QueryString["Personas"].ToString())==false || habitacionesCheck.Equals(Request.QueryString["Habitaciones"].ToString()) == false)
+            {
+                Session.Abandon();
+                Response.Redirect("index.aspx");
+            }
 
         }
         private void llenarDatos()
