@@ -151,8 +151,10 @@ namespace HotelAuditoria
                 {
                     if (check.Checked)
                     {
-                        suma = dgHabitaciones.Rows.Cast<GridViewRow>().Sum(x => Convert.ToDecimal(x.Cells[2].Text));
-                        totalpersonas= dgHabitaciones.Rows.Cast<GridViewRow>().Sum(x => Convert.ToInt32(x.Cells[5].Text));
+                        suma += Convert.ToDecimal(grvRow.Cells[2].Text);
+                        totalpersonas += Convert.ToInt32(grvRow.Cells[5].Text);
+                        //suma = dgHabitaciones.Rows.Cast<GridViewRow>().Sum(x => Convert.ToDecimal(x.Cells[2].Text));
+                        //totalpersonas= dgHabitaciones.Rows.Cast<GridViewRow>().Sum(x => Convert.ToInt32(x.Cells[5].Text));
                         
                        
 
