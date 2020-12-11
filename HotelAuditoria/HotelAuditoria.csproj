@@ -192,6 +192,7 @@
     <Content Include="js\popper.js" />
     <Content Include="js\stellar.js" />
     <Content Include="js\sweetalert2.js" />
+    <Content Include="pasarela.aspx" />
     <Content Include="royal-Doc\css\font-awesome.min.css" />
     <Content Include="royal-Doc\css\main.css" />
     <Content Include="royal-Doc\css\normalize.min.css" />
@@ -282,6 +283,13 @@
     <Compile Include="modelo\Clientes.cs" />
     <Compile Include="modelo\conexion.cs" />
     <Compile Include="modelo\Reservas.cs" />
+    <Compile Include="pasarela.aspx.cs">
+      <DependentUpon>pasarela.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pasarela.aspx.designer.cs">
+      <DependentUpon>pasarela.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Masterpage.Master.cs">
       <DependentUpon>Masterpage.Master</DependentUpon>
