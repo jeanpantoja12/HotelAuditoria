@@ -28,8 +28,8 @@
                                     <div class="col-md-4">
                                         <div class="book_tabel_item">
                                             <div class="form-group">
-                                                <div class='input-group date' id='datetimepicker11'>
-                                                    <asp:TextBox ID="txtLlegada" CssClass="form-control" required placeholder="Fecha de Llegada" runat="server"></asp:TextBox>
+                                                <div class='input-group date form_datetime' id="lstllegada">
+                                                    <asp:TextBox ID="txtLlegada" CssClass="form-control form_datetime" autocomplete="off" disabled required placeholder="Fecha de Llegada" runat="server"></asp:TextBox>
                                                     <%--<asp:RequiredFieldValidator id="RequiredFieldValidator1" ControlToValidate="txtLlegada" ErrorMessage="Required" runat="server"/>--%>
                                                     <span class="input-group-addon">
                                                         <i class="fa fa-calendar" aria-hidden="true"></i>
@@ -37,8 +37,8 @@
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <div class='input-group date' id='datetimepicker1'>
-                                                    <asp:TextBox ID="txtSalida" CssClass="form-control" required placeholder="Fecha de Salida" runat="server"></asp:TextBox>
+                                                <div class='input-group date form_datetime' id="lstsalida">
+                                                    <asp:TextBox ID="txtSalida" CssClass="form-control form_datetime" autocomplete="off" disabled required placeholder="Fecha de Salida" runat="server"></asp:TextBox>
                                                     <span class="input-group-addon">
                                                         <i class="fa fa-calendar" aria-hidden="true"></i>
                                                     </span>
@@ -281,4 +281,39 @@
         </section>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="script" runat="server">
+    <script src="vendors/bootstrap-datepicker/bootstrap-datetimepicker.min.js"></script>
+    <script type="text/javascript" src="vendors/bootstrap-datepicker//bootstrap-datetimepicker.es.js" charset="UTF-8"></script>
+    <script>
+
+        $("#lstllegada").datetimepicker({
+            format: "dd-mm-yyyy hh:ii",
+            autoclose: true,
+            todayBtn: true,
+            startDate: new Date(),
+            minuteStep: 10,
+            language: 'es'
+        });
+        $("#lstsalida").datetimepicker({
+            format: "dd-mm-yyyy hh:ii",
+            autoclose: true,
+            todayBtn: true,
+            startDate: "2013-02-14 10:00",
+            minuteStep: 10,
+            language: 'es'
+        });
+        $('#lstllegada').datetimepicker().on('changeDate', function (ev) {
+            var departureDate = ev.date;
+            var endDate = new Date();
+            departureDate.setDate(departureDate.getDate() + 1);
+            endDate.setDate(departureDate.getDate()+6);
+            $('#lstsalida').datetimepicker('setStartDate', departureDate);
+            $('#lstsalida').datetimepicker('setEndDate', endDate);
+        });
+
+        $('#lstsalida').datetimepicker().on('changeDate', function (ev) {
+            var returnDate = ev.date;
+            $('#lstllegada').datetimepicker('setEndDate', returnDate);
+        });
+        //$('#datetimepicker11').data('DateTimePicker').setLocalDate(new Date(year, month, day, 00, 01));
+    </script>
 </asp:Content>

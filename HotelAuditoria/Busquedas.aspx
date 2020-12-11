@@ -27,7 +27,7 @@
                                         <div class="book_tabel_item">
                                             <div class="form-group">
                                                 <div class='input-group date' id='datetimepicker11'>
-                                                    <asp:TextBox ID="txtLlegada" CssClass="form-control" required placeholder="Fecha de Llegada" runat="server"></asp:TextBox>
+                                                    <asp:TextBox ID="txtLlegada" CssClass="form-control" autocomplete="off" required placeholder="Fecha de Llegada" runat="server"></asp:TextBox>
                                                     <%--<asp:RequiredFieldValidator id="RequiredFieldValidator1" ControlToValidate="txtLlegada" ErrorMessage="Required" runat="server"/>--%>
                                                     <span class="input-group-addon">
                                                         <i class="fa fa-calendar" aria-hidden="true"></i>
@@ -124,4 +124,16 @@
         </section>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="script" runat="server">
+    <script>
+        var d = new Date();
+        var month = d.getMonth();
+        var day = d.getDate();
+        var year = d.getFullYear();
+
+        $('#<%= txtLlegada.ClientID %>').datetimepicker({
+            language: 'en',
+            format: 'yyyy-MM-dd hh:mm'
+        });
+        $("#startdatetime-from").data('DateTimePicker').setLocalDate(new Date(year, month, day, 00, 01));
+    </script>
 </asp:Content>

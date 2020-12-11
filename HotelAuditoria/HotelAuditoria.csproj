@@ -247,10 +247,13 @@
     <Content Include="royal-Doc\syntax-highlighter\styles\shThemeMDUltra.css" />
     <Content Include="royal-Doc\syntax-highlighter\styles\shThemeMidnight.css" />
     <Content Include="royal-Doc\syntax-highlighter\styles\shThemeRDark.css" />
+    <Content Include="vendors\bootstrap-datepicker\bootstrap-datetimepicker.es.js" />
+    <Content Include="vendors\bootstrap-datepicker\bootstrap-datetimepicker.js" />
     <Content Include="vendors\bootstrap-datepicker\bootstrap-datetimepicker.min.css" />
     <Content Include="vendors\bootstrap-datepicker\bootstrap-datetimepicker.min.js" />
     <Content Include="vendors\bootstrap-datepicker\bootstrap-select.css" />
     <Content Include="vendors\bootstrap-datepicker\bootstrap-select.js" />
+    <Content Include="vendors\bootstrap-datepicker\moment.min.js" />
     <Content Include="vendors\imagesloaded\imagesloaded.pkgd.min.js" />
     <Content Include="vendors\isotope\isotope-min.js" />
     <Content Include="vendors\lightbox\simpleLightbox.css" />
@@ -355,6 +358,7 @@
     <Content Include="vendors\linericon\fonts\Linearicons-Free.woff" />
     <Content Include="vendors\linericon\fonts\Linearicons-Free.woff2" />
     <Content Include="Masterpage.Master" />
+    <None Include="Properties\PublishProfiles\HotelAuditoria.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
