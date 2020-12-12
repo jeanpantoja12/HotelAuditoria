@@ -44,15 +44,24 @@
                                 </div>
                                    <!-- Direccion  -->
                                 	<div class="row">
-                                    <div class="col-md-8">
+                                    <div class="col-md-6">
+                                        <label>DNI</label>
+                                         <asp:TextBox ID="txtdni" required type="number" runat="server" onkeypress="return this.value.length<8"></asp:TextBox>
+									</div>
+
+                                    <div class="col-md-6">
+                                        <label>Telefono</label>
+                                        <asp:TextBox ID="txtTelefono" required type="number" runat="server" onkeypress="return this.value.length<9"></asp:TextBox>
+									</div>
+                                  
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-10">
                                         <label>Dirección</label>
                                          <asp:TextBox ID="txtDireccion" required  runat="server"></asp:TextBox>
 									</div>
 
-                                    <div class="col-md-4">
-                                        <label>Telefono</label>
-                                        <asp:TextBox ID="txtTelefono" required type="number" runat="server" onkeypress="return this.value.length<9"></asp:TextBox>
-									</div>
+                                    
                                   
                                 </div>
 
