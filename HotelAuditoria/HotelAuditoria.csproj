@@ -285,6 +285,7 @@
     <Compile Include="modelo\Ciudad.cs" />
     <Compile Include="modelo\Clientes.cs" />
     <Compile Include="modelo\conexion.cs" />
+    <Compile Include="modelo\Pasarela.cs" />
     <Compile Include="modelo\Reservas.cs" />
     <Compile Include="pasarela.aspx.cs">
       <DependentUpon>pasarela.aspx</DependentUpon>

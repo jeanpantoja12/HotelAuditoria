@@ -36,18 +36,12 @@
 								<div class='row' id="resultados_ajax"></div>
                                 <!-- Nombres -- Apellidos -->
                                 
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <label>Boleta: </label>
-                                        <asp:TextBox ID="txtBoleta" required ReadOnly="true" runat="server"></asp:TextBox>
-                                    </div>
-                                   
-                                </div>
+                    
                                 <div class="row">
                                   
                                     <div class="col-md-6">
                                         <label>Numero de Tarjeta</label>
-                                        <asp:TextBox ID="txtnumerot" required onkeypress="return isNumber(event)" pattern="[1-9]{1}[0-9]{9}" runat="server"></asp:TextBox>
+                                        <asp:TextBox ID="txtnumerot" required onkeypress="return isNumber(event)" runat="server"></asp:TextBox>
 									</div>
                                       <div class="col-md-6">
                                         <label>CVV</label>
@@ -61,7 +55,7 @@
                                         <label>Fecha de Expiración</label>
                                          <div class="form-group">
                                                 <div class='input-group date form_datetime'  id="lstFecha">
-                                                    <asp:TextBox ID="txtFechaExpiracion" CssClass="form-control form_datetime" Enabled="false" runat="server"></asp:TextBox>
+                                                    <asp:TextBox ID="txtFechaExpiracion" CssClass="form-control form_datetime" Enabled="true" runat="server"></asp:TextBox>
                                                     <span class="input-group-addon">
                                                         <i class="fa fa-calendar" aria-hidden="true">
                                                     

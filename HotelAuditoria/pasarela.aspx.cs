@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HotelAuditoria.modelo;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -12,8 +13,12 @@ namespace HotelAuditoria
 {
     public partial class pasarela : System.Web.UI.Page
     {
+
+        Pasarela pasarel = new Pasarela();
         private string reserva;
         private string montoT;
+       
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack)
@@ -62,6 +67,36 @@ namespace HotelAuditoria
         }
         protected void btnpagar_Click(object sender, EventArgs e)
         {
+
+
+            if (txtcvv.Text != "" & txtnumerot.Text != "" & txtnombres.Text != "" & txtFechaExpiracion.Text != "")
+            {
+
+                if (pasarel.insertPasarela(int.Parse(reserva), double.Parse(txtmontototal.Text), txtnumerot.Text, txtcvv.Text, txtFechaExpiracion.Text, txtnombres.Text, txtemail.Text))
+
+                {
+                    lblMensaje.Text = "El registro se guardo correctamente";
+                    txtmontototal.Text = "";
+                    txtnumerot.Text = "";
+                    txtcvv.Text = "";
+                    txtFechaExpiracion.Text = "";
+                    txtnombres.Text = "";
+                    txtemail.Text = "";
+              
+
+                }
+                else
+                {
+                    lblMensaje.Text = "El registro no se pudo guardar";
+                }
+
+
+
+            }
+            else
+            {
+                lblMensaje.Text = "Por favor completa los campos";
+            }
 
         }
     }
