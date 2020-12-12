@@ -19,19 +19,27 @@ namespace HotelAuditoria
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["Llegada"] != null && Session["Salida"]!=null)
+            {
+                txtLlegada.Text = Session["Llegada"].ToString();
+                txtSalida.Text = Session["Salida"].ToString();
+            }
             if (!Page.IsPostBack)
             {
                 drpCantidad.Items.Insert(0, new ListItem("Cantidad de Personas","0"));
-                drpCantidad.Items[0].Attributes["disabled"] = "disabled";
-                drpCantidad.SelectedValue = "0";
+                drpCantidad.Items.FindByValue("0").Attributes.Add("Disabled","Disabled");
+                drpCantidad.SelectedValue = "1";
+                selectedFunction();
                 llenarCiudad();
+
             }
             
         }
 
         protected void btnReservar_Click(object sender, EventArgs e)
         {
-            if(txtLlegada.Text=="" || txtSalida.Text =="" || drpCiudad.SelectedValue.ToString() == "0")
+            
+            if(txtLlegada.Text=="" || txtSalida.Text =="")
             {
                 MessageBox.Show("Error, insertar todos los campos");
             }
@@ -59,6 +67,45 @@ namespace HotelAuditoria
             drpCiudad.DataValueField = "ID_Ciudad";
             drpCiudad.DataSource = dt;
             drpCiudad.DataBind();
+        }
+        void selectedFunction()
+        {
+
+            drpCantidad.Items.FindByValue("0").Attributes.Add("Disabled", "Disabled");
+            if (drpCantidad.SelectedValue == "1")
+            {
+                drpHabitaciones.Items.FindByValue("1").Enabled = true;
+                drpHabitaciones.Items.FindByValue("2").Enabled = false;
+                drpHabitaciones.Items.FindByValue("3").Enabled = false;
+                drpHabitaciones.Items.FindByValue("4").Enabled = false;
+            }
+            if (drpCantidad.SelectedValue == "2")
+            {
+                drpHabitaciones.Items.FindByValue("1").Enabled = true;
+                drpHabitaciones.Items.FindByValue("2").Enabled = true;
+                drpHabitaciones.Items.FindByValue("3").Enabled = false;
+                drpHabitaciones.Items.FindByValue("4").Enabled = false;
+            }
+            if (drpCantidad.SelectedValue == "3")
+            {
+                drpHabitaciones.Items.FindByValue("1").Enabled = true;
+                drpHabitaciones.Items.FindByValue("2").Enabled = true;
+                drpHabitaciones.Items.FindByValue("3").Enabled = true;
+                drpHabitaciones.Items.FindByValue("4").Enabled = false;
+            }
+            if (drpCantidad.SelectedValue == "4")
+            {
+                drpHabitaciones.Items.FindByValue("4").Enabled = true;
+                drpHabitaciones.Items.FindByValue("2").Enabled = true;
+                drpHabitaciones.Items.FindByValue("3").Enabled = true;
+                drpHabitaciones.Items.FindByValue("1").Enabled = false;
+            }
+        }
+        protected void drpCantidad_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            selectedFunction();
+            Session["Llegada"] = txtLlegada.Text;
+            Session["Salida"] = txtSalida.Text;
         }
     }
 }
