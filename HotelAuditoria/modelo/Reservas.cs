@@ -50,6 +50,23 @@ namespace HotelAuditoria.modelo
             }
             return (int)cmd.Parameters["@retVal"].Value;
         }
+        public DataTable getVenta(string idRev)
+        {
+            DataTable dt = new DataTable();
+            conexion cad = new conexion();
+            string StringConDB = cad.cadconexion();
+            SqlConnection con = new SqlConnection(StringConDB);
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.CommandText = "Sp_getVenta";
+            cmd.Parameters.AddWithValue("@idRes", idRev);
+            cmd.Connection = con;
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            con.Open();
+            da.Fill(dt);
+            con.Close();
+            return dt;
+        }
         public bool insertTReservaHab(string reserva, string hab)
         {
             conexion cad = new conexion();

@@ -114,9 +114,53 @@
                             </form>
                         </div>
                     </div>
+                    
                     <asp:Label ID="lblMensaje" runat="server" Text="Mensaje"></asp:Label>
                 </article>
                 <div class="clearfix"></div>
+                <div class="col-md-12" id="divReport" runat="server">
+                    <table style="width:100%">
+                        <tbody>
+                            <tr>
+                                <th colspan="9">DETALLE DE VENTA</th>
+                            </tr>
+                            <tr>
+                                <td>Boleta</td>
+                                <td><asp:Label ID="Boleta" runat="server" /></td>
+                            </tr>
+                            <tr>
+                                <td>Nombre del Cliente</td>
+                                <td><asp:Label ID="Cli_Name" runat="server" /></td>
+                            </tr>
+                            <tr>
+                                <td>DNI:</td>
+                                <td><asp:Label ID="Cli_DNI" runat="server" /></td>
+                            </tr>
+                            <tr>
+                                <td>Número de Tarjeta:</td>
+                                <td><asp:Label ID="Tarjeta" runat="server" /></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">Fecha de Entrada</td>
+                                <td colspan="2"><asp:Label ID="Fecha_Entrada" runat="server" /></td>
+                                <td colspan="2">Fecha de Salida</td>
+                                <td colspan="3"><asp:Label ID="Fecha_Salida" runat="server" /></td>
+                            </tr>
+                            <tr>
+                                <td colspan="7">Habitaciones</td>
+                                <td colspan="2">Precio</td>
+                            </tr>
+                            <tr>
+                                <td colspan ="7"><asp:Label ID="Habitaciones" runat="server" /></td>
+                                <td colspan="2"><asp:Label ID="PrecioT" runat="server" /></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </div>
             </div>
         </div>
     </div>
