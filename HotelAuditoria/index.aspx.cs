@@ -16,7 +16,7 @@ namespace HotelAuditoria
         Ciudad ciudades = new Ciudad();
       
        
-
+        //Si miras esto, se hizo el commit
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["Llegada"] != null && Session["Salida"]!=null)
