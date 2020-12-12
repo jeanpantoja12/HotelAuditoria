@@ -144,10 +144,10 @@ namespace HotelAuditoria
                             }
                         }
                     }
-                    
-                    ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "Swal.fire('Venta Registrada','Datos Guardados Correctamente','success').then((value) => { window.location ='index.aspx'; });", true);
                     string idRev = HttpUtility.UrlEncode(Encrypt(idRes.ToString()));
                     string monto = HttpUtility.UrlEncode(Encrypt(txtPrecio.Text));
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "Swal.fire('Venta Registrada','Datos Guardados Correctamente','success').then((value) => { window.location ='index.aspx'; });", true);
+                    
                     Response.Redirect(string.Format("pasarela.aspx?idReserva={0}&montoTotal={1}", idRev,monto));
                   //  SendMail();
                 }

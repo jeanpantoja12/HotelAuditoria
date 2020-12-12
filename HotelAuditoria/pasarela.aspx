@@ -119,20 +119,16 @@
                                 <th colspan="9">DETALLE DE VENTA</th>
                             </tr>
                             <tr>
-                                <td>Boleta</td>
-                                <td><asp:Label ID="Boleta" runat="server" /></td>
+                                <td colspan="7">Boleta</td>
+                                <td colspan="2"><asp:Label ID="Boleta" runat="server" /></td>
                             </tr>
                             <tr>
-                                <td>Nombre del Cliente</td>
-                                <td><asp:Label ID="Cli_Name" runat="server" /></td>
+                                <td colspan="4">Nombre del Cliente</td>
+                                <td colspan="5"><asp:Label ID="Cli_Name" runat="server" /></td>
                             </tr>
                             <tr>
-                                <td>DNI:</td>
-                                <td><asp:Label ID="Cli_DNI" runat="server" /></td>
-                            </tr>
-                            <tr>
-                                <td>Número de Tarjeta:</td>
-                                <td><asp:Label ID="Tarjeta" runat="server" /></td>
+                                <td colspan="4">DNI:</td>
+                                <td colspan="5"><asp:Label ID="Cli_DNI" runat="server" /></td>
                             </tr>
                             <tr>
                                 <td colspan="2">Fecha de Entrada</td>
@@ -208,9 +204,5 @@
         });
         //$('#datetimepicker11').data('DateTimePicker').setLocalDate(new Date(year, month, day, 00, 01));
     </script>
-    <script type = "text/javascript" >
-        function preventBack() { window.history.forward(); }
-        setTimeout("preventBack()", 0);
-        window.onunload = function () { null };
-   </script>
+
 </asp:Content>

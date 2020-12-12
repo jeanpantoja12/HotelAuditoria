@@ -1,5 +1,8 @@
 ﻿using HotelAuditoria.modelo;
 using iTextSharp.text;
+using iTextSharp.text.html.simpleparser;
+using iTextSharp.text.pdf;
+using Org.BouncyCastle.Asn1.Ocsp;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -19,6 +22,7 @@ namespace HotelAuditoria
         private string reserva;
         private string montoT;
         Reservas sql = new Reservas();
+        Pasarela pasarel = new Pasarela();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack)
@@ -31,9 +35,13 @@ namespace HotelAuditoria
                 }
                 else
                 {
-                    reserva = Decrypt(HttpUtility.UrlDecode(Request.QueryString["idReserva"]));
-                    montoT = Decrypt(HttpUtility.UrlDecode(Request.QueryString["montoTotal"]));
-                    llenarDatos();
+                    if (Request.QueryString["idReserva"] != null)
+                    {
+                        reserva = Decrypt(HttpUtility.UrlDecode(Request.QueryString["idReserva"]));
+                        montoT = Decrypt(HttpUtility.UrlDecode(Request.QueryString["montoTotal"]));
+                        llenarDatos();
+                    }
+                   
                 }
             }
         }
@@ -45,19 +53,19 @@ namespace HotelAuditoria
         private void printPDF()
         {
             Response.ContentType = "application/pdf";
-            Response.AddHeader("content-disposition", "attachment;filename=Boleta.pdf");
+            Response.AddHeader("content-disposition", "attachment;filename=Panel.pdf");
             Response.Cache.SetCacheability(HttpCacheability.NoCache);
-            StringWriter stringWriter = new StringWriter();
-            HtmlTextWriter html = new HtmlTextWriter(stringWriter);
-            divReport.RenderControl(html);
-            StringReader stringReader = new StringReader(stringWriter.ToString());
-            iTextSharp.text.Document doc = new iTextSharp.text.Document(PageSize.A4, 10f,10f, 40f, 0f);
-            iTextSharp.text.html.simpleparser.HTMLWorker htmlParser = new iTextSharp.text.html.simpleparser.HTMLWorker(doc);
-            iTextSharp.text.pdf.PdfWriter.GetInstance(doc, Response.OutputStream);
-            doc.Open();
-            htmlParser.Parse(stringReader);
-            doc.Close();
-            Response.Write(doc);
+            StringWriter sw = new StringWriter();
+            HtmlTextWriter hw = new HtmlTextWriter(sw);
+            divReport.RenderControl(hw);
+            StringReader sr = new StringReader(sw.ToString());
+            iTextSharp.text.Document pdfDoc = new iTextSharp.text.Document(PageSize.A4, 10f, 10f, 100f, 0f);
+            HTMLWorker htmlparser = new HTMLWorker(pdfDoc);
+            PdfWriter.GetInstance(pdfDoc, Response.OutputStream);
+            pdfDoc.Open();
+            htmlparser.Parse(sr);
+            pdfDoc.Close();
+            Response.Write(pdfDoc);
             Response.End();
         }
         private string Decrypt(string cipherText)
@@ -85,7 +93,7 @@ namespace HotelAuditoria
         void llenarVenta()
         {
             DataTable dt = new DataTable();
-            dt = sql.getVenta(reserva);
+            dt = sql.getVenta(Decrypt(HttpUtility.UrlDecode(Request.QueryString["idReserva"])));
             Fecha_Entrada.Text = dt.Rows[0][0].ToString();
             Fecha_Salida.Text = dt.Rows[0][1].ToString();
             PrecioT.Text = dt.Rows[0][3].ToString();
@@ -93,14 +101,25 @@ namespace HotelAuditoria
             Cli_DNI.Text = dt.Rows[0][5].ToString();
             Habitaciones.Text = dt.Rows[0][6].ToString();
             Boleta.Text = dt.Rows[0][7].ToString();
-            Tarjeta.Text = dt.Rows[0][8].ToString();
+            //Tarjeta.Text = dt.Rows[0][8].ToString();
 
         }
         protected void btnpagar_Click(object sender, EventArgs e)
         {
-            //Despues de agregar la venta
-            llenarVenta();
-            printPDF();
+            if (txtcvv.Text != "" & txtnumerot.Text != "" & txtnombres.Text != "" & txtFechaExpiracion.Text != "")
+            {
+                divReport.Visible = true;
+                if (pasarel.insertPasarela(Decrypt(HttpUtility.UrlDecode(Request.QueryString["idReserva"])), txtmontototal.Text, txtnumerot.Text, txtcvv.Text, txtFechaExpiracion.Text, txtnombres.Text, txtemail.Text))
+
+                {
+                    lblMensaje.Text = "El registro se guardo correctamente";
+                    llenarVenta();
+                    printPDF();
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "Swal.fire('Venta Registrada','Datos Guardados Correctamente','success').then((value) => { window.location ='index.aspx'; });", true);
+                }
+                //Despues de agregar la venta
+
+            }
         }
     }
 }

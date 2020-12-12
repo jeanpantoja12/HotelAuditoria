@@ -17,7 +17,7 @@ namespace HotelAuditoria.modelo
 
 
 
-        public bool insertPasarela(int Reserva, double Pago, string Tarjeta, string CVV, string Fecha, string Titular, string Email)
+        public bool insertPasarela(string Reserva, string Pago, string Tarjeta, string CVV, string Fecha, string Titular, string Email)
         {
             DataTable dt = new DataTable();
             conexion cad = new conexion();
