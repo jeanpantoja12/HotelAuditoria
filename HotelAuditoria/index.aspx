@@ -29,7 +29,7 @@
                                         <div class="book_tabel_item">
                                             <div class="form-group">
                                                 <div class='input-group date form_datetime' id="lstllegada">
-                                                    <asp:TextBox ID="txtLlegada" CssClass="form-control form_datetime" autocomplete="off" disabled required placeholder="Fecha de Llegada" runat="server"></asp:TextBox>
+                                                    <asp:TextBox ID="txtLlegada" CssClass="form-control form_datetime" autocomplete="off"   required placeholder="Fecha de Llegada" runat="server"></asp:TextBox>
                                                     <%--<asp:RequiredFieldValidator id="RequiredFieldValidator1" ControlToValidate="txtLlegada" ErrorMessage="Required" runat="server"/>--%>
                                                     <span class="input-group-addon">
                                                         <i class="fa fa-calendar" aria-hidden="true"></i>
@@ -38,7 +38,7 @@
                                             </div>
                                             <div class="form-group">
                                                 <div class='input-group date form_datetime' id="lstsalida">
-                                                    <asp:TextBox ID="txtSalida" CssClass="form-control form_datetime" autocomplete="off" disabled required placeholder="Fecha de Salida" runat="server"></asp:TextBox>
+                                                    <asp:TextBox ID="txtSalida" CssClass="form-control form_datetime" autocomplete="off" required placeholder="Fecha de Salida" runat="server"></asp:TextBox>
                                                     <span class="input-group-addon">
                                                         <i class="fa fa-calendar" aria-hidden="true"></i>
                                                     </span>
@@ -49,7 +49,7 @@
                                     <div class="col-md-4">
                                         <div class="book_tabel_item">
                                             <div class="input-group">
-                                                <asp:DropDownList CssClass="wide" ID="drpCantidad" runat="server">
+                                                <asp:DropDownList CssClass="wide" ID="drpCantidad" AutoPostBack="true" OnSelectedIndexChanged="drpCantidad_SelectedIndexChanged" runat="server">
                                                     <asp:ListItem Value="1">1</asp:ListItem>
                                                     <asp:ListItem Value="2">2</asp:ListItem>
                                                     <asp:ListItem Value="3">3</asp:ListItem>
