@@ -17,8 +17,11 @@ namespace HotelAuditoria
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            
-            
+            if (Session["Llegada"] != null && Session["Salida"] != null)
+            {
+                txtLlegada.Text = Session["Llegada"].ToString();
+                txtSalida.Text = Session["Salida"].ToString();
+            }
             if (!Page.IsPostBack)
             {
                 if (Request.QueryString["Destino"] != null && Request.QueryString["Personas"] != null && Request.QueryString["Habitaciones"] != null)
@@ -133,6 +136,45 @@ namespace HotelAuditoria
             Response.Redirect("Busquedas.aspx?Llegada=" + txtLlegada.Text + "&Salida=" + txtSalida.Text + "&Destino=" + drpCiudad.SelectedValue
                     + "&Personas=" + drpCantidad.SelectedValue + "&Habitaciones=" + drpHabitaciones.SelectedValue);
             llenarCamposBusqueda();
+        }
+        void selectedFunction()
+        {
+
+            //drpCantidad.Items.FindByValue("0").Attributes.Add("Disabled", "Disabled");
+            if (drpCantidad.SelectedValue == "1")
+            {
+                drpHabitaciones.Items.FindByValue("1").Enabled = true;
+                drpHabitaciones.Items.FindByValue("2").Enabled = false;
+                drpHabitaciones.Items.FindByValue("3").Enabled = false;
+                drpHabitaciones.Items.FindByValue("4").Enabled = false;
+            }
+            if (drpCantidad.SelectedValue == "2")
+            {
+                drpHabitaciones.Items.FindByValue("1").Enabled = true;
+                drpHabitaciones.Items.FindByValue("2").Enabled = true;
+                drpHabitaciones.Items.FindByValue("3").Enabled = false;
+                drpHabitaciones.Items.FindByValue("4").Enabled = false;
+            }
+            if (drpCantidad.SelectedValue == "3")
+            {
+                drpHabitaciones.Items.FindByValue("1").Enabled = true;
+                drpHabitaciones.Items.FindByValue("2").Enabled = true;
+                drpHabitaciones.Items.FindByValue("3").Enabled = true;
+                drpHabitaciones.Items.FindByValue("4").Enabled = false;
+            }
+            if (drpCantidad.SelectedValue == "4")
+            {
+                drpHabitaciones.Items.FindByValue("4").Enabled = true;
+                drpHabitaciones.Items.FindByValue("2").Enabled = true;
+                drpHabitaciones.Items.FindByValue("3").Enabled = true;
+                drpHabitaciones.Items.FindByValue("1").Enabled = false;
+            }
+        }
+        protected void drpCantidad_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            selectedFunction();
+            Session["Llegada"] = txtLlegada.Text;
+            Session["Salida"] = txtSalida.Text;
         }
     }
 }

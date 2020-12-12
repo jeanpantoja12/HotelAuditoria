@@ -39,11 +39,11 @@
                                   
                                     <div class="col-md-6">
                                         <label>Numero de Tarjeta</label>
-                                        <asp:TextBox ID="txtnumerot" required  runat="server"></asp:TextBox>
+                                        <asp:TextBox ID="txtnumerot" required onkeypress="return isNumber(event)" pattern="[1-9]{1}[0-9]{9}" runat="server"></asp:TextBox>
 									</div>
                                       <div class="col-md-6">
                                         <label>CVV</label>
-                                         <asp:TextBox ID="txtcvv" required type="password" runat="server"></asp:TextBox>
+                                         <asp:TextBox ID="txtcvv" required type="password" onkeypress="return isNumber2(event)" runat="server"></asp:TextBox>
 									</div>
                                     
                                 </div>
@@ -52,8 +52,8 @@
                                   <div class="col-md-6">
                                         <label>Fecha de Expiración</label>
                                          <div class="form-group">
-                                                <div class='input-group date' id='datetimepicker11'>
-                                                    <asp:TextBox ID="txtFechaExpiracion" CssClass="form-control" Enabled="false" runat="server"></asp:TextBox>
+                                                <div class='input-group date form_datetime'  id="lstFecha">
+                                                    <asp:TextBox ID="txtFechaExpiracion" CssClass="form-control form_datetime" Enabled="false" runat="server"></asp:TextBox>
                                                     <span class="input-group-addon">
                                                         <i class="fa fa-calendar" aria-hidden="true">
                                                     
@@ -112,4 +112,52 @@
             </div>
         </div>
     </div>
+</asp:Content>
+<asp:Content ID="Content3" ContentPlaceHolderID="script" runat="server">
+    <script src="vendors/bootstrap-datepicker/bootstrap-datetimepicker.min.js"></script>
+    <script type="text/javascript" src="vendors/bootstrap-datepicker//bootstrap-datetimepicker.es.js" charset="UTF-8"></script>
+    <script>
+        function isNumber(evt) {
+            evt = (evt) ? evt : window.event;
+            var charCode = (evt.which) ? evt.which : evt.keyCode;
+            if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+                return false;
+            }
+            else {
+                if (document.getElementById("<%= txtnumerot.ClientID%>").value.length < 16) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+            
+        }
+        function isNumber2(evt) {
+            evt = (evt) ? evt : window.event;
+            var charCode = (evt.which) ? evt.which : evt.keyCode;
+            if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+                return false;
+            }
+            else {
+                if (document.getElementById("<%= txtcvv.ClientID%>").value.length < 3) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+
+        }
+    </script>
+    <script>
+
+        $("#lstFecha").datetimepicker({
+            format: "dd-mm-yyyy hh:ii",
+            autoclose: true,
+            todayBtn: true,
+            startDate: new Date(),
+            minuteStep: 10,
+            language: 'es'
+        });
+        //$('#datetimepicker11').data('DateTimePicker').setLocalDate(new Date(year, month, day, 00, 01));
+    </script>
 </asp:Content>

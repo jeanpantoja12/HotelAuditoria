@@ -47,7 +47,7 @@
                                     <div class="col-md-4">
                                         <div class="book_tabel_item">
                                             <div class="input-group">
-                                                <asp:DropDownList CssClass="wide" ID="drpCantidad" runat="server">
+                                                <asp:DropDownList CssClass="wide" ID="drpCantidad" AutoPostBack="true" OnSelectedIndexChanged="drpCantidad_SelectedIndexChanged" runat="server">
                                                     <asp:ListItem Value="1">1 Persona</asp:ListItem>
                                                     <asp:ListItem Value="2">2 Personas</asp:ListItem>
                                                     <asp:ListItem Value="3">3 Personas</asp:ListItem>
@@ -124,16 +124,39 @@
         </section>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="script" runat="server">
+    <script src="vendors/bootstrap-datepicker/bootstrap-datetimepicker.min.js"></script>
+    <script type="text/javascript" src="vendors/bootstrap-datepicker//bootstrap-datetimepicker.es.js" charset="UTF-8"></script>
     <script>
-        var d = new Date();
-        var month = d.getMonth();
-        var day = d.getDate();
-        var year = d.getFullYear();
 
-        $('#<%= txtLlegada.ClientID %>').datetimepicker({
-            language: 'en',
-            format: 'yyyy-MM-dd hh:mm'
+        $("#lstllegada").datetimepicker({
+            format: "dd-mm-yyyy hh:ii",
+            autoclose: true,
+            todayBtn: true,
+            startDate: new Date(),
+            minuteStep: 10,
+            language: 'es'
         });
-        $("#startdatetime-from").data('DateTimePicker').setLocalDate(new Date(year, month, day, 00, 01));
+        $("#lstsalida").datetimepicker({
+            format: "dd-mm-yyyy hh:ii",
+            autoclose: true,
+            todayBtn: true,
+            startDate: "2013-02-14 10:00",
+            minuteStep: 10,
+            language: 'es'
+        });
+        $('#lstllegada').datetimepicker().on('changeDate', function (ev) {
+            var departureDate = ev.date;
+            var endDate = new Date();
+            departureDate.setDate(departureDate.getDate() + 1);
+            endDate.setDate(departureDate.getDate() + 6);
+            $('#lstsalida').datetimepicker('setStartDate', departureDate);
+            $('#lstsalida').datetimepicker('setEndDate', endDate);
+        });
+
+        $('#lstsalida').datetimepicker().on('changeDate', function (ev) {
+            var returnDate = ev.date;
+            $('#lstllegada').datetimepicker('setEndDate', returnDate);
+        });
+        //$('#datetimepicker11').data('DateTimePicker').setLocalDate(new Date(year, month, day, 00, 01));
     </script>
 </asp:Content>

@@ -45,6 +45,7 @@ namespace HotelAuditoria
             }
             else
             {
+                Session.Abandon();
                 Response.Redirect("Busquedas.aspx?Llegada=" + txtLlegada.Text+"&Salida=" + txtSalida.Text +"&Destino="+drpCiudad.SelectedValue
                     + "&Personas=" + drpCantidad.SelectedValue+ "&Habitaciones=" + drpHabitaciones.SelectedValue);
                 //App_code.dtBusqueda = sql.getHoteles(txtLlegada.Text, txtSalida.Text, drpHabitaciones.SelectedValue, drpCantidad.SelectedValue);
