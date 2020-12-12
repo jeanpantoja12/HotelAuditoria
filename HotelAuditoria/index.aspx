@@ -286,7 +286,7 @@
     <script>
 
         $("#lstllegada").datetimepicker({
-            format: "dd-mm-yyyy hh:ii",
+            format: "yyyy-mm-dd hh:ii",
             autoclose: true,
             todayBtn: true,
             startDate: new Date(),
@@ -294,7 +294,7 @@
             language: 'es'
         });
         $("#lstsalida").datetimepicker({
-            format: "dd-mm-yyyy hh:ii",
+            format: "yyyy-mm-dd hh:ii",
             autoclose: true,
             todayBtn: true,
             startDate: "2013-02-14 10:00",

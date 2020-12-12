@@ -13,7 +13,7 @@ namespace HotelAuditoria.modelo
      
 
 
-        public int insertReserva(string Nombre, string Apellido, string Direccion, string Telefono, string Correo, DateTime FechaEntrada, DateTime FechaSalida, int CantidadPersonas, double Precio)
+        public int insertReserva(string dni,string Nombre, string Apellido, string Direccion, string Telefono, string Correo, DateTime FechaEntrada, DateTime FechaSalida, int CantidadPersonas, double Precio)
         {
             DataTable dt = new DataTable();
             conexion cad = new conexion();
@@ -22,6 +22,7 @@ namespace HotelAuditoria.modelo
             SqlCommand cmd = new SqlCommand();
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.CommandText = "Sp_Insert_Reserva2";
+            cmd.Parameters.AddWithValue("@DNI", dni);
             cmd.Parameters.AddWithValue("@Nombre", Nombre);
             cmd.Parameters.AddWithValue("@Apellido", Apellido);
             cmd.Parameters.AddWithValue("@Direccion", Direccion);

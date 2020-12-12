@@ -93,8 +93,8 @@
                                 <div class="col-md-6">
                                         <label>Fecha de LLegada</label>
                                          <div class="form-group">
-                                                <div class='input-group date' id='datetimepicker11'>
-                                                    <asp:TextBox ID="txtFechaIngreso" CssClass="form-control" Enabled="false" runat="server"></asp:TextBox>
+                                                <div class='input-group date form_datetime' id='lstLlegada'>
+                                                    <asp:TextBox ID="txtFechaIngreso" CssClass="form-control form_datetime" Enabled="false" runat="server"></asp:TextBox>
                                                 
                                                     <span class="input-group-addon">
                                                         <i class="fa fa-calendar" aria-hidden="true">
@@ -107,8 +107,8 @@
                                     <div class="col-md-6">
                                      <label>Fecha de Salida</label>
                                         <div class="form-group">
-                                                <div class='input-group date' id='datetimepicker11'>
-                                                    <asp:TextBox ID="txtSalida" CssClass="form-control" Enabled="false" runat="server"></asp:TextBox>
+                                                <div class='input-group date form_datetime' id='lstSalida'>
+                                                    <asp:TextBox ID="txtSalida" CssClass="form-control form_datetime" Enabled="false" runat="server"></asp:TextBox>
                                                 
                                                     <span class="input-group-addon">
                                                         <i class="fa fa-calendar" aria-hidden="true">
@@ -204,6 +204,10 @@
     </div>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="script" runat="server">
-    
+    <script src="vendors/bootstrap-datepicker/bootstrap-datetimepicker.min.js"></script>
+    <script type="text/javascript" src="vendors/bootstrap-datepicker//bootstrap-datetimepicker.es.js" charset="UTF-8"></script>
+    <script>
+        //$('#datetimepicker11').data('DateTimePicker').setLocalDate(new Date(year, month, day, 00, 01));
+    </script>
 
 </asp:Content>

@@ -35,6 +35,14 @@
 								
 								<div class='row' id="resultados_ajax"></div>
                                 <!-- Nombres -- Apellidos -->
+                                
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <label>Boleta: </label>
+                                        <asp:TextBox ID="txtBoleta" required ReadOnly="true" runat="server"></asp:TextBox>
+                                    </div>
+                                   
+                                </div>
                                 <div class="row">
                                   
                                     <div class="col-md-6">
@@ -151,13 +159,20 @@
     <script>
 
         $("#lstFecha").datetimepicker({
-            format: "dd-mm-yyyy hh:ii",
+            format: "dd-mm-yyyy",
             autoclose: true,
             todayBtn: true,
+            startView: 'month',
+            minView: 'month',
             startDate: new Date(),
             minuteStep: 10,
             language: 'es'
         });
         //$('#datetimepicker11').data('DateTimePicker').setLocalDate(new Date(year, month, day, 00, 01));
     </script>
+    <script type = "text/javascript" >
+        function preventBack() { window.history.forward(); }
+        setTimeout("preventBack()", 0);
+        window.onunload = function () { null };
+   </script>
 </asp:Content>

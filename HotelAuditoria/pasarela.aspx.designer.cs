@@ -24,6 +24,15 @@ namespace HotelAuditoria
         protected global::System.Web.UI.HtmlControls.HtmlForm booking;
 
         /// <summary>
+        /// Control txtBoleta.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtBoleta;
+
+        /// <summary>
         /// Control txtnumerot.
         /// </summary>
         /// <remarks>
