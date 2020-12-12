@@ -48,23 +48,37 @@
                                         <label>Dirección</label>
                                          <asp:TextBox ID="txtDireccion" required  runat="server"></asp:TextBox>
 									</div>
+
+                                    <div class="col-md-4">
+                                        <label>Telefono</label>
+                                        <asp:TextBox ID="txtTelefono" required type="number" runat="server" onkeypress="return this.value.length<9"></asp:TextBox>
+									</div>
                                   
                                 </div>
 
                                 <!-- Email  -->
                                 <div class="row">
-                                    <div class="col-md-6">
-                                        <label>Teléfono</label>
-                                        <asp:TextBox ID="txtTelefono" required type="number" runat="server"></asp:TextBox>
-									</div>
+                                    
                                     <div class="col-md-6">
                                         <label>Correo electrónico</label>
                                         <asp:TextBox ID="txtCorreo" required type="email" runat="server"></asp:TextBox> 
 									</div>
                                     
+                              
+                                    
+                                    <div class="col-md-6">
+                                        <label>Repita Correo electrónico</label>
+                                        <asp:TextBox ID="txtcorreoverifica" required type="email" runat="server"></asp:TextBox> 
+									</div>
+                                    
                                 </div>
-								
-															
+                                    
+                                    <asp:CompareValidator ID="CompareValidator1" runat="server"  ErrorMessage=" Error : Los correos deben ser iguales" ControlToCompare="txtcorreoverifica" ControlToValidate="txtCorreo" ValidationGroup="vgrCapturaDatos"></asp:CompareValidator>
+                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1"  runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="txtCorreo" ValidationGroup="vgrCapturaDatos"></asp:RequiredFieldValidator>
+
+    
+
+                                    						
 								
 								<div class="row">
                                 <div class="col-md-6">
@@ -162,7 +176,7 @@
                        
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <asp:Button ID="btnEnviar" CssClass="adam-button" runat="server" Text="ENVIAR" OnClick="btnEnviar_Click" />
+                                        <asp:Button ID="btnEnviar" CssClass="adam-button" runat="server" Text="ENVIAR" OnClick="btnEnviar_Click"  ValidationGroup="vgrCapturaDatos"/>
                                         
                                     </div>
 
